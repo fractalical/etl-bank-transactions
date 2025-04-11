@@ -1,0 +1,894 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/9/2025 4:15:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-S7VOHSP5VFS"
+  DTS:CreatorName="WIN-S7VOHSP5VFS\Administrator"
+  DTS:DTSID="{34234BAA-ED1A-44AE-A750-CFCC268C2D81}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ODS_customer_dim"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{A633F5F5-4C7E-4C38-A04F-392125F1F0AD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{784078B2-8BFA-4AC5-9A13-0C200A6F14C5}"
+      DTS:ObjectName="localhost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_customer_dim-{784078B2-8BFA-4AC5-9A13-0C200A6F14C5}localhost;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{350972D9-5991-422E-9808-74048891904C}"
+      DTS:ObjectName="localhost.group_project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_ODS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_customer_dim-{350972D9-5991-422E-9808-74048891904C}localhost.group_project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6043BAFC-6449-4032-8ADD-3658E94EA8D7}"
+      DTS:ObjectName="localhost.group_project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_customer_dim-{6043BAFC-6449-4032-8ADD-3658E94EA8D7}localhost.group_project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT-ODS_customer_dim"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9A0AA7A9-9FD0-4586-99F4-2AE6289C8C37}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT-ODS_customer_dim"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT-ODS_customer_dim\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[contact_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="contact_no"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[nid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="nid"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[nid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[contact_no_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[contact_no_clean]"
+                      name="contact_no_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[nid_clean]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[nid_clean]"
+                      name="nid_clean"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[nid]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\Derived Column.Inputs[Derived Column Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN]([TRIM](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]})) == 0 ? "Unknown" : [REPLACE]([REPLACE]([REPLACE](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"@",""),"\"",""),"'","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(TRIM(name)) == 0 ? "Unknown" : REPLACE(REPLACE(REPLACE(name,"@",""),"\"",""),"'","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]}," ",1) &gt; 0 ? [SUBSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},1,[FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]}," ",1) - 1) : #{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(name," ",1) &gt; 0 ? SUBSTRING(name,1,FINDSTRING(name," ",1) - 1) : name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]}," ",1) &gt; 0 ? [SUBSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},[FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]}," ",1) + 1,[LEN](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]})) : "Unknown"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(name," ",1) &gt; 0 ? SUBSTRING(name,FINDSTRING(name," ",1) + 1,LEN(name)) : "Unknown"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\ODS_customer_dim"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ODS_customer_dim"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ODS_customer_dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Connections[OleDbConnection]"
+                  connectionManagerID="{4AB0608E-B679-4F96-8DCC-2A5A77513905}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WIN-S7VOHSP5VFS.group_project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[nid_clean]"
+                      cachedDataType="wstr"
+                      cachedName="nid_clean"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[nid]"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[nid_clean]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[customer_key]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_key"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[contact_no_clean]"
+                      cachedDataType="wstr"
+                      cachedName="contact_no_clean"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[contact_no]"
+                      lineageId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[contact_no_clean]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[contact_no]"
+                      dataType="wstr"
+                      length="20"
+                      name="contact_no" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[nid]"
+                      dataType="wstr"
+                      length="20"
+                      name="nid" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC STA_customer_dim"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[STA_customer_dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Connections[OleDbConnection]"
+                  connectionManagerID="{6628817D-43C1-418C-B929-C7A62349FC4A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[WIN-S7VOHSP5VFS.group_project_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[contact_no]"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]"
+                      name="contact_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[nid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[nid]"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[nid]"
+                      name="nid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[customer_key]"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]"
+                      name="customer_key"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[contact_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="contact_no" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[nid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[customer_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_key" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[customer_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[customer_key]"
+                      name="customer_key" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[contact_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[contact_no]"
+                      name="contact_no" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[nid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[nid]"
+                      name="nid" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
+              endId="Package\DFT-ODS_customer_dim\ODS_customer_dim.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT-ODS_customer_dim\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
+              endId="Package\DFT-ODS_customer_dim\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT-ODS_customer_dim\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
+              endId="Package\DFT-ODS_customer_dim\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64D4DDCB-78F3-4CEC-B74A-B39B7AA6FEDF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4AB0608E-B679-4F96-8DCC-2A5A77513905}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.ODS_customer_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A8939D1-9EF4-4F98-B454-4555E956077C}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT-ODS_customer_dim" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\DFT-ODS_customer_dim"
+          TopLeft="314.5,174.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="293.5,61.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="378.5,103.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.5,71"
+              Start="0,0"
+              End="37.5,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="33.5,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.5,35.5"
+                    Point2="37.5,35.5"
+                    Point3="37.5,39.5" />
+                  <mssgle:LineSegment
+                    End="37.5,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT-ODS_customer_dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim"
+          TopLeft="169.5,12.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\DFT-ODS_customer_dim\ODS_customer_dim"
+          TopLeft="164.5,241.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\DFT-ODS_customer_dim\Derived Column"
+          TopLeft="168.5,82.5" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\DFT-ODS_customer_dim\Data Conversion"
+          TopLeft="176.5,151.5" />
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
+          TopLeft="282.25,54.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
+          TopLeft="280,124.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,27"
+              Start="0,0"
+              End="8,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="4,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,13.5"
+                    Point2="8,13.5"
+                    Point3="8,17.5" />
+                  <mssgle:LineSegment
+                    End="8,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
+          TopLeft="288,193.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,48"
+              Start="0,0"
+              End="-34.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-30.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,24"
+                    Point2="-34.5,24"
+                    Point3="-34.5,28" />
+                  <mssgle:LineSegment
+                    End="-34.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS_customer_dim\ODS_customer_dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
