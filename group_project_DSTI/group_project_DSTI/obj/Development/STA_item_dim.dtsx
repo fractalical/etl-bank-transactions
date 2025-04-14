@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{10CBA5A7-F528-4BB7-BBB2-4534A2CF7E58}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{33A4A4BC-1C84-4731-A558-970B0546501C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -112,7 +112,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
+          DTS:CodePage="1251"
           DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\item_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
@@ -122,7 +122,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="item_key"
-              DTS:DTSID="{18015185-1E59-4C69-B3D5-541D70615AE1}"
+              DTS:DTSID="{0FFBAB75-2837-4439-A14C-C48E5ECA0D6C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -131,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="item_name"
-              DTS:DTSID="{3B138D69-4248-41F0-BBF1-CE826D6BD2FB}"
+              DTS:DTSID="{AFB7EF1B-CACC-441B-803C-B3DAB3640D4B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -140,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="desc"
-              DTS:DTSID="{BBB2F964-751B-4870-95F1-EC7E365E3B6A}"
+              DTS:DTSID="{7E2B6DB5-AC79-4099-9E7B-61F475CB3558}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -149,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit_price"
-              DTS:DTSID="{53AA828D-C184-4FB9-A992-7D293724FEE1}"
+              DTS:DTSID="{99B663C2-D5CC-43D6-82EA-BBB10158BC7F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -158,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="man_country"
-              DTS:DTSID="{3CB7575B-9B96-471E-859A-CF8ACFE6D8FB}"
+              DTS:DTSID="{52A13A67-E16A-44D1-9C2E-9C66EBC50FB1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -167,7 +167,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="supplier"
-              DTS:DTSID="{DABAFB45-85DB-453C-8515-603FAEE04202}"
+              DTS:DTSID="{D000311F-57B4-4328-A04E-EF147BC75F86}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -176,7 +176,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit"
-              DTS:DTSID="{8D96192C-B728-4A53-B071-34E099600DF0}"
+              DTS:DTSID="{CE058709-44D7-4E6C-B554-034D3CF755B5}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -212,252 +212,6 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT-STA_item_dim\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[item_key]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="item_key"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[item_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="item_name"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_name]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[desc]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="desc"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[desc]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[unit_price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="unit_price"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[man_country]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="man_country"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[man_country]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[supplier]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="supplier"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[supplier]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[unit]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="unit"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_key]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_key]"
-                      name="Copy of item_key"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]"
-                      name="Copy of item_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of desc]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of desc]"
-                      name="Copy of desc"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[desc]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit_price]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit_price]"
-                      name="Copy of unit_price"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of man_country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of man_country]"
-                      name="Copy of man_country"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[man_country]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of supplier]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of supplier]"
-                      name="Copy of supplier"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[supplier]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit]"
-                      name="Copy of unit"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -490,7 +244,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -512,7 +266,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -534,7 +288,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[desc]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -556,7 +310,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -578,7 +332,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[man_country]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -600,7 +354,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[supplier]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -622,7 +376,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -647,43 +401,43 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[item_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="item_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[item_name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="item_name" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[desc]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="desc" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="unit_price" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[man_country]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="man_country" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[supplier]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="supplier" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="unit" />
@@ -791,90 +545,104 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of item_key]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of item_key"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[item_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="item_key"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_key]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of item_name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copy of item_name"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[item_name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="item_name"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_name]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of item_name]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_name]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of desc]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copy of desc"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[desc]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="desc"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[desc]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of desc]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[desc]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of unit_price]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[unit_price]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Copy of unit_price"
+                      cachedName="unit_price"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit_price]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of man_country]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[man_country]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Copy of man_country"
+                      cachedName="man_country"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[man_country]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of man_country]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[man_country]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of supplier]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copy of supplier"
-                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[supplier]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of supplier]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of unit]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[supplier]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Copy of unit"
+                      cachedName="supplier"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[supplier]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[supplier]" />
+                    <inputColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[unit]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="unit"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of unit]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="10"
                       name="item_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_name]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="100"
                       name="item_name" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[desc]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="100"
                       name="desc" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
-                      dataType="wstr"
-                      length="10"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
                       name="unit_price" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[man_country]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="50"
                       name="man_country" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[supplier]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="100"
                       name="supplier" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="50"
                       name="unit" />
                   </externalMetadataColumns>
@@ -908,13 +676,8 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT-STA_item_dim.Paths[Data Conversion Output]"
-              endId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
-              endId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output]" />
           </paths>
@@ -998,7 +761,7 @@
     design-time-name="Package\DFT-STA_item_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.5,42"
           Id="Package\DFT-STA_item_dim\OLE_DST-STA"
@@ -1007,70 +770,20 @@
           Size="197,42"
           Id="Package\DFT-STA_item_dim\FF_SRC STA_item_dim"
           TopLeft="137.5,62.5" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DFT-STA_item_dim\Data Conversion"
-          TopLeft="270,163.999999321997" />
         <EdgeLayout
           Id="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
-          TopLeft="236,104.5">
+          TopLeft="232.875,104.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112.5,59.4999993219972"
+              EndConnector="0,149.541666211974"
               Start="0,0"
-              End="112.5,51.9999993219972">
+              End="0,142.041666211974">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7499996609986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.7499996609986"
-                    Point2="0,29.7499996609986"
-                    Point3="4,29.7499996609986" />
-                  <mssgle:LineSegment
-                    End="108.5,29.7499996609986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="108.5,29.7499996609986"
-                    Point2="112.5,29.7499996609986"
-                    Point3="112.5,33.7499996609986" />
-                  <mssgle:LineSegment
-                    End="112.5,51.9999993219972" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-STA_item_dim.Paths[Data Conversion Output]"
-          TopLeft="348.5,205.999999321997">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-118.75,48.0416668899771"
-              Start="0,0"
-              End="-118.75,40.5416668899771">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.0208334449886" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.0208334449886"
-                    Point2="0,24.0208334449886"
-                    Point3="-4,24.0208334449886" />
-                  <mssgle:LineSegment
-                    End="-114.75,24.0208334449886" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-114.75,24.0208334449886"
-                    Point2="-118.75,24.0208334449886"
-                    Point3="-118.75,28.0208334449886" />
-                  <mssgle:LineSegment
-                    End="-118.75,40.5416668899771" />
+                    End="0,142.041666211974" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

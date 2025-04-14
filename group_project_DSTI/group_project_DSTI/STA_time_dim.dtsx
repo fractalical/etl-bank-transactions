@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{D5ED8B23-EA60-4349-8BE9-213DCFC5D23D}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{09C4F1CD-EDBE-4398-9486-60872A58F153}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -207,7 +207,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
+          DTS:CodePage="1251"
           DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\time_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
@@ -217,7 +217,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="time_key"
-              DTS:DTSID="{FD893CEE-4069-46CC-9E32-F2C3A1B33284}"
+              DTS:DTSID="{BA42656E-B15A-4A53-A3D8-7DC4847533A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -226,7 +226,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="date"
-              DTS:DTSID="{572904E2-3C87-4548-A191-797AFAC41BF3}"
+              DTS:DTSID="{50C7E2FA-79EA-493A-9BBB-41F6E228F850}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -235,7 +235,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hour"
-              DTS:DTSID="{5BC3BABD-E26E-41E1-B1D3-951C9294B34E}"
+              DTS:DTSID="{7587F407-31EB-416B-B560-D50952393DEA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -244,7 +244,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="day"
-              DTS:DTSID="{C1620CFB-8276-4C69-B6EC-EEDC0ACD0320}"
+              DTS:DTSID="{1CFB37EF-FD94-4E55-A4BA-3F418269B796}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -253,7 +253,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="week"
-              DTS:DTSID="{7A61BD47-5BF6-409B-9035-87EEDF488806}"
+              DTS:DTSID="{031353E0-D0A6-4491-A72A-20D94F337E06}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -262,7 +262,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="month"
-              DTS:DTSID="{184D84EC-1130-412B-ABC7-25232B83CC7D}"
+              DTS:DTSID="{A48B6169-D91F-43B2-ADAC-389AFF330644}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -271,7 +271,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="quarter"
-              DTS:DTSID="{FA6B2FEE-33C3-4A29-840B-67204636C258}"
+              DTS:DTSID="{42BC271C-96F1-4CDD-A840-D5E2728667B2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -280,7 +280,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="year"
-              DTS:DTSID="{0D900284-77FD-4683-96F4-C91AADC4B26A}"
+              DTS:DTSID="{DD02E365-E766-40D4-AC42-E8C2A00D4E82}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -303,279 +303,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\DFT-STA_item_dim\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[time_key]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="time_key"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[time_key]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="date"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[date]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[hour]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="hour"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[hour]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[day]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="day"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[day]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[week]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="week"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[week]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[month]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="month"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[month]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[quarter]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="quarter"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[quarter]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[year]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="year"
-                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[year]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of time_key]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of time_key]"
-                      name="Copy of time_key"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[time_key]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
-                      name="Copy of date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hour]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hour]"
-                      name="Copy of hour"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[hour]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day]"
-                      name="Copy of day"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[day]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of week]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of week]"
-                      name="Copy of week"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[week]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month]"
-                      name="Copy of month"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[month]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quarter]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quarter]"
-                      name="Copy of quarter"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[quarter]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]"
-                      name="Copy of year"
-                      precision="18"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[year]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim"
               componentClassID="Microsoft.FlatFileSource"
@@ -609,7 +336,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[time_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -631,7 +358,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[date]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -653,7 +380,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[hour]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -675,7 +402,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[day]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -697,7 +424,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[week]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -719,7 +446,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[month]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -741,7 +468,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[quarter]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -763,7 +490,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[year]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -788,49 +515,49 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[time_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="time_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[date]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="date" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[hour]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="hour" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[day]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="day" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[week]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="week" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[month]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[quarter]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="quarter" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].ExternalColumns[year]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="year" />
@@ -938,66 +665,76 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of time_key]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of time_key"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[time_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="time_key"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of time_key]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[time_key]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Copy of date"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="date"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[date]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[date]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of hour]"
-                      cachedDataType="numeric"
-                      cachedName="Copy of hour"
-                      cachedPrecision="18"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[hour]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hour"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[hour]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hour]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[hour]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of day]"
-                      cachedDataType="numeric"
-                      cachedName="Copy of day"
-                      cachedPrecision="18"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[day]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[day]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of day]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[day]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of week]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of week"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[week]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="week"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[week]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of week]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[week]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of month]"
-                      cachedDataType="numeric"
-                      cachedName="Copy of month"
-                      cachedPrecision="18"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[month]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="month"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[month]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of month]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[month]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of quarter]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of quarter"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[quarter]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="quarter"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quarter]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[quarter]" />
                     <inputColumn
-                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of year]"
-                      cachedDataType="numeric"
-                      cachedName="Copy of year"
-                      cachedPrecision="18"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[year]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="year"
                       externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[year]"
-                      lineageId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of year]" />
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output].Columns[year]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="10"
                       name="time_key" />
                     <externalMetadataColumn
@@ -1014,7 +751,8 @@
                       name="day" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[week]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="10"
                       name="week" />
                     <externalMetadataColumn
@@ -1023,7 +761,8 @@
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="10"
                       name="quarter" />
                     <externalMetadataColumn
@@ -1061,13 +800,8 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT-STA_item_dim.Paths[Data Conversion Output]"
-              endId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\DFT-STA_item_dim\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
-              endId="Package\DFT-STA_item_dim\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\DFT-STA_item_dim\FF_SRC STA_time_dim.Outputs[Flat File Source Output]" />
           </paths>
@@ -1151,7 +885,7 @@
     design-time-name="Package\DFT-STA_item_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="191.5,42"
           Id="Package\DFT-STA_item_dim\FF_SRC STA_time_dim"
@@ -1160,70 +894,20 @@
           Size="150.5,42"
           Id="Package\DFT-STA_item_dim\OLE_DST-STA"
           TopLeft="154.5,254.041666211974" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DFT-STA_item_dim\Data Conversion"
-          TopLeft="270,163.999999321997" />
         <EdgeLayout
           Id="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
-          TopLeft="233.25,104.5">
+          TopLeft="231.5,104.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.25,59.499999321997"
+              EndConnector="0,149.541666211974"
               Start="0,0"
-              End="115.25,51.999999321997">
+              End="0,142.041666211974">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7499996609985" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.7499996609985"
-                    Point2="0,29.7499996609985"
-                    Point3="4,29.7499996609985" />
-                  <mssgle:LineSegment
-                    End="111.25,29.7499996609985" />
-                  <mssgle:CubicBezierSegment
-                    Point1="111.25,29.7499996609985"
-                    Point2="115.25,29.7499996609985"
-                    Point3="115.25,33.7499996609985" />
-                  <mssgle:LineSegment
-                    End="115.25,51.999999321997" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-STA_item_dim.Paths[Data Conversion Output]"
-          TopLeft="348.5,205.999999321997">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-118.75,48.0416668899771"
-              Start="0,0"
-              End="-118.75,40.5416668899771">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.0208334449886" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.0208334449886"
-                    Point2="0,24.0208334449886"
-                    Point3="-4,24.0208334449886" />
-                  <mssgle:LineSegment
-                    End="-114.75,24.0208334449886" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-114.75,24.0208334449886"
-                    Point2="-118.75,24.0208334449886"
-                    Point3="-118.75,28.0208334449886" />
-                  <mssgle:LineSegment
-                    End="-118.75,40.5416668899771" />
+                    End="0,142.041666211974" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

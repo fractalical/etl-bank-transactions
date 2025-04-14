@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{125C6796-900C-4771-A333-AEE04D005687}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{8A87EEC5-DF13-4C0D-B040-4CB507914DD9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
+          DTS:CodePage="1251"
           DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\customer_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="coustomer_key"
-              DTS:DTSID="{799AA680-7756-4FC0-B477-E9DCF427C0DC}"
+              DTS:DTSID="{2170AF1B-DCAC-48A2-B811-AAF478662B05}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="name"
-              DTS:DTSID="{CF71BBC8-3298-42EE-839C-B5B4D9531CD5}"
+              DTS:DTSID="{EA2C2400-6B1F-4BAC-AA74-0944133D30E9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="contact_no"
-              DTS:DTSID="{EE6D9601-6BB9-4D4F-8D4F-3ADD7C7FBD1E}"
+              DTS:DTSID="{1EEB6603-82DD-43DF-95B9-5FA30AC8EA22}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="nid"
-              DTS:DTSID="{D2C59C9F-68A3-4202-937B-A0CF8370FDBC}"
+              DTS:DTSID="{02A8DE03-464C-42E2-972A-A132E2718F7A}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -102,168 +102,6 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT-STA_customer_dim\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[coustomer_key]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="coustomer_key"
-                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[coustomer_key]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="name"
-                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[name]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[contact_no]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="contact_no"
-                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[contact_no]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input].Columns[nid]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="nid"
-                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[nid]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of coustomer_key]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of coustomer_key]"
-                      name="Copy of coustomer_key"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[coustomer_key]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
-                      name="Copy of name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of contact_no]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of contact_no]"
-                      name="Copy of contact_no"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[contact_no]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nid]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nid]"
-                      name="Copy of nid"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[nid]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -296,7 +134,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[coustomer_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -318,7 +156,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -340,7 +178,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[contact_no]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -362,7 +200,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[nid]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -387,25 +225,25 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].ExternalColumns[coustomer_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="coustomer_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].ExternalColumns[name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].ExternalColumns[contact_no]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="contact_no" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].ExternalColumns[nid]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="nid" />
@@ -513,54 +351,62 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of coustomer_key]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Copy of coustomer_key"
-                      externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of coustomer_key]" />
-                    <inputColumn
-                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="Copy of name"
+                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="name"
                       externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]" />
+                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[name]" />
                     <inputColumn
-                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of contact_no]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[contact_no]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Copy of contact_no"
+                      cachedName="contact_no"
                       externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[contact_no]"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of contact_no]" />
+                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[contact_no]" />
                     <inputColumn
-                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[Copy of nid]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[nid]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Copy of nid"
+                      cachedName="nid"
                       externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[nid]"
-                      lineageId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nid]" />
+                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[nid]" />
+                    <inputColumn
+                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="coustomer_key"
+                      externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[coustomer_key]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="100"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[contact_no]"
-                      dataType="wstr"
-                      length="20"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
                       name="contact_no" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[nid]"
-                      dataType="wstr"
-                      length="20"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
                       name="nid" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      dataType="wstr"
+                      codePage="1251"
+                      dataType="str"
                       length="10"
                       name="coustomer_key" />
                   </externalMetadataColumns>
@@ -594,13 +440,8 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT-STA_customer_dim.Paths[Data Conversion Output]"
-              endId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\DFT-STA_customer_dim\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
               refId="Package\DFT-STA_customer_dim.Paths[Flat File Source Output]"
-              endId="Package\DFT-STA_customer_dim\Data Conversion.Inputs[Data Conversion Input]"
+              endId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
               startId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output]" />
           </paths>
@@ -696,79 +537,29 @@
     design-time-name="Package\DFT-STA_customer_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150.5,42"
-          Id="Package\DFT-STA_customer_dim\OLE_DST-STA"
-          TopLeft="241.5,262.999999386569" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="214.5,42"
           Id="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim"
           TopLeft="215.5,54.0416666639762" />
         <NodeLayout
-          Size="157,42"
-          Id="Package\DFT-STA_customer_dim\Data Conversion"
-          TopLeft="395.5,168.041658140512" />
+          Size="150.5,42"
+          Id="Package\DFT-STA_customer_dim\OLE_DST-STA"
+          TopLeft="241,261.916666058617" />
         <EdgeLayout
           Id="Package\DFT-STA_customer_dim.Paths[Flat File Source Output]"
-          TopLeft="322.75,96.0416666639762">
+          TopLeft="319.5,96.0416666639762">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="151.25,71.9999914765357"
+              EndConnector="0,165.87499939464"
               Start="0,0"
-              End="151.25,64.4999914765357">
+              End="0,158.37499939464">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.9999957382679" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.9999957382679"
-                    Point2="0,35.9999957382679"
-                    Point3="4,35.9999957382679" />
-                  <mssgle:LineSegment
-                    End="147.25,35.9999957382679" />
-                  <mssgle:CubicBezierSegment
-                    Point1="147.25,35.9999957382679"
-                    Point2="151.25,35.9999957382679"
-                    Point3="151.25,39.9999957382679" />
-                  <mssgle:LineSegment
-                    End="151.25,64.4999914765357" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-STA_customer_dim.Paths[Data Conversion Output]"
-          TopLeft="474,210.041658140512">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-157.25,52.9583412460569"
-              Start="0,0"
-              End="-157.25,45.4583412460569">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4791706230285" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.4791706230285"
-                    Point2="0,26.4791706230285"
-                    Point3="-4,26.4791706230285" />
-                  <mssgle:LineSegment
-                    End="-153.25,26.4791706230285" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-153.25,26.4791706230285"
-                    Point2="-157.25,26.4791706230285"
-                    Point3="-157.25,30.4791706230285" />
-                  <mssgle:LineSegment
-                    End="-157.25,45.4583412460569" />
+                    End="0,158.37499939464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

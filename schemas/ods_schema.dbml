@@ -1,0 +1,58 @@
+// Use DBML to define ODS database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table ODS_store_dim {
+  store_key varchar(10) [primary key]
+  division varchar(50) [not null]
+  district varchar(50) [not null]
+  upazila varchar(50) [not null]
+}
+
+Table ODS_item_dim {
+  item_key varchar(10) [primary key]
+  item_name varchar(100) [not null]
+  desc varchar(100) [not null]
+  unit_price decimal(10,2) [not null]
+  man_country varchar(50) [not null]
+  supplier varchar(100) [not null]
+  unit varchar(50) [not null]
+}
+
+Table ODS_customer_dim {
+  coustomer_key varchar(10) [primary key]
+  first_name varchar(100) [not null]
+  last_name varchar(100) [not null]
+  contact_no varchar(50) [not null]
+  nid varchar(50) [not null]
+}
+
+Table ODS_trans_dim {
+  payment_key varchar(10) [primary key]
+  trans_type varchar(50) [not null]
+  bank_name varchar(100)
+}
+
+Table ODS_time_dim {
+  time_key varchar(10) [primary key]
+  date date [not null]
+  time time [not null]
+  hour integer [not null]
+  day integer [not null]
+  week varchar(10) [not null]
+  month integer [not null]
+  quarter varchar(10) [not null]
+  year integer [not null]
+}
+
+Table ODS_fact_table {
+  fact_key integer [primary key, increment]
+  time_key varchar(10) [not null, ref: > ODS_time_dim.time_key]
+  store_key varchar(10) [not null, ref: > ODS_store_dim.store_key]
+  item_key varchar(10) [not null, ref: > ODS_item_dim.item_key]
+  coustomer_key varchar(10) [not null, ref: > ODS_customer_dim.coustomer_key]
+  payment_key varchar(10) [not null, ref: > ODS_trans_dim.payment_key]
+  quantity integer [not null]
+  total_amount decimal(10,2) [not null]
+  discount_amount decimal(10,2) [not null]
+  net_amount decimal(10,2) [not null]
+} 
