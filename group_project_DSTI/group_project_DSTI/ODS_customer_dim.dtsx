@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ODS_customer_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{1A97AFE6-D2EF-432C-A9E6-C50DF75A6AC0}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{E7DD7DF4-E597-4206-9797-BB43E024C137}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -364,6 +364,194 @@
                       refId="Package\DFT-ODS_customer_dim\DCNV-Name Types.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT-ODS_customer_dim\DCNV-Name Types.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER-Remove @ Symbol"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input].Columns[name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="name"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]"
+                      name="cleaned_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">REPLACE([name], "@", "")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(name, "@", "")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\DER-Split Name"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER-Split Name"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input].Columns[cleaned_name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="cleaned_name"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[first_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">FINDSTRING([cleaned_name]," ",1) &gt; 0 ? SUBSTRING([cleaned_name],1,FINDSTRING([cleaned_name]," ",1) - 1) : [cleaned_name]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(cleaned_name," ",1) &gt; 0 ? SUBSTRING(cleaned_name,1,FINDSTRING(cleaned_name," ",1) - 1) : cleaned_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[last_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">FINDSTRING([cleaned_name]," ",1) &gt; 0 ? RIGHT([cleaned_name], LEN([cleaned_name]) - FINDSTRING([cleaned_name]," ",1)) : "Unknown"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(cleaned_name," ",1) &gt; 0 ? RIGHT(cleaned_name, LEN(cleaned_name) - FINDSTRING(cleaned_name," ",1)) : "Unknown"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -728,194 +916,6 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="DER-Remove @ Symbol"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input].Columns[name]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="name"
-                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]"
-                      name="cleaned_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">REPLACE([name], "@", "")</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(name, "@", "")</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT-ODS_customer_dim\DER-Split Name"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="DER-Split Name"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input].Columns[cleaned_name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="cleaned_name"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Outputs[Derived Column Output].Columns[cleaned_name]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[first_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[first_name]"
-                      name="first_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">FINDSTRING([cleaned_name]," ",1) > 0 ? SUBSTRING([cleaned_name],1,FINDSTRING([cleaned_name]," ",1) - 1) : [cleaned_name]</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">FINDSTRING(cleaned_name," ",1) > 0 ? SUBSTRING(cleaned_name,1,FINDSTRING(cleaned_name," ",1) - 1) : cleaned_name</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[last_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output].Columns[last_name]"
-                      name="last_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">FINDSTRING([cleaned_name]," ",1) > 0 ? RIGHT([cleaned_name], LEN([cleaned_name]) - FINDSTRING([cleaned_name]," ",1)) : "Unknown"</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">FINDSTRING(cleaned_name," ",1) > 0 ? RIGHT(cleaned_name, LEN(cleaned_name) - FINDSTRING(cleaned_name," ",1)) : "Unknown"</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
@@ -1043,18 +1043,6 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130.5,42"
-          Id="Package\DFT-ODS_customer_dim\DER-Split Name"
-          TopLeft="56.7500000000001,389.666666785048" />
-        <NodeLayout
-          Size="176.5,42"
-          Id="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values"
-          TopLeft="32.25,107.5" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim"
-          TopLeft="31.5000000000001,564.249999757856" />
-        <NodeLayout
           Size="200.5,42"
           Id="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters"
           TopLeft="20.25,209.5" />
@@ -1063,31 +1051,25 @@
           Id="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol"
           TopLeft="35.75,311.5" />
         <NodeLayout
+          Size="157,42"
+          Id="Package\DFT-ODS_customer_dim\DCNV-Name Types"
+          TopLeft="43.5,487.666665881044" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim"
+          TopLeft="31.5000000000001,564.249999757856" />
+        <NodeLayout
+          Size="130.5,42"
+          Id="Package\DFT-ODS_customer_dim\DER-Split Name"
+          TopLeft="56.7500000000001,389.666666785048" />
+        <NodeLayout
+          Size="176.5,42"
+          Id="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values"
+          TopLeft="32.25,107.5" />
+        <NodeLayout
           Size="230,42"
           Id="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim"
           TopLeft="5.5,5.5" />
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Remove @ to Split]"
-          TopLeft="121.25,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.1666667850481"
-              Start="0,0"
-              End="0,28.6666667850481">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.6666667850481" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_customer_dim.Paths[Valid to Remove @]"
           TopLeft="120.5,251.5">
@@ -1110,6 +1092,50 @@
             <mssgm:EdgeLabel
               BoundingBox="-36.63576171875,21.37548828125,73.2715234375,9.7490234375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Source to Check Empty]"
+          TopLeft="120.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Remove @ to Split]"
+          TopLeft="121.25,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.1666667850481"
+              Start="0,0"
+              End="0,28.6666667850481">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6666667850481" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1137,32 +1163,6 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Source to Check Empty]"
-          TopLeft="120.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\DFT-ODS_customer_dim\DCNV-Name Types"
-          TopLeft="43.5,487.666665881044" />
-        <EdgeLayout
           Id="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
           TopLeft="122,431.666666785048">
           <EdgeLayout.Curve>
@@ -1186,18 +1186,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
-          TopLeft="121.25,529.666665881044">
+          TopLeft="122,529.666665881044">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.5833338768118"
+              EndConnector="22.0000000000001,34.5833338768119"
               Start="0,0"
-              End="0,27.0833338768118">
+              End="22.0000000000001,27.0833338768119">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.0833338768118" />
+                    End="0,13.291666938406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.291666938406"
+                    Point2="0,17.291666938406"
+                    Point3="4,17.291666938406" />
+                  <mssgle:LineSegment
+                    End="18.0000000000001,17.291666938406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.0000000000001,17.291666938406"
+                    Point2="22.0000000000001,17.291666938406"
+                    Point3="22.0000000000001,21.291666938406" />
+                  <mssgle:LineSegment
+                    End="22.0000000000001,27.0833338768119" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

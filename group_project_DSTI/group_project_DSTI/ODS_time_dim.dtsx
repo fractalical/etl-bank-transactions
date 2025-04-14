@@ -156,6 +156,124 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data."
+              name="CSPL-Validate Numbers"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[hour]"
+                      cachedDataType="i4"
+                      cachedName="hour"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[hour]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[day]"
+                      cachedDataType="i4"
+                      cachedName="day"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[day]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[week]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="week"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[week]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[month]"
+                      cachedDataType="i4"
+                      cachedName="month"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[month]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[quarter]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="quarter"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[quarter]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input].Columns[year]"
+                      cachedDataType="i4"
+                      cachedName="year"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[year]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Valid Numbers]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Valid Numbers"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(DT_I4)[hour] &gt;= 0 &amp;&amp; (DT_I4)[hour] &lt;= 23 &amp;&amp; (DT_I4)[day] &gt;= 1 &amp;&amp; ((((DT_I4)[month] == 1 || (DT_I4)[month] == 3 || (DT_I4)[month] == 5 || (DT_I4)[month] == 7 || (DT_I4)[month] == 8 || (DT_I4)[month] == 10 || (DT_I4)[month] == 12) &amp;&amp; (DT_I4)[day] &lt;= 31) || (((DT_I4)[month] == 4 || (DT_I4)[month] == 6 || (DT_I4)[month] == 9 || (DT_I4)[month] == 11) &amp;&amp; (DT_I4)[day] &lt;= 30) || ((DT_I4)[month] == 2 &amp;&amp; (((DT_I4)[year] % 4 == 0 &amp;&amp; (DT_I4)[year] % 100 != 0) || (DT_I4)[year] % 400 == 0) &amp;&amp; (DT_I4)[day] &lt;= 29) || ((DT_I4)[month] == 2 &amp;&amp; (DT_I4)[day] &lt;= 28)) &amp;&amp; SUBSTRING([week], 1, 1) &gt;= &quot;0&quot; &amp;&amp; SUBSTRING([week], 1, 1) &lt;= &quot;4&quot; &amp;&amp; (DT_I4)[month] &gt;= 1 &amp;&amp; (DT_I4)[month] &lt;= 12 &amp;&amp; RIGHT([quarter], 1) &gt;= &quot;1&quot; &amp;&amp; RIGHT([quarter], 1) &lt;= &quot;4&quot; &amp;&amp; (DT_I4)[year] &gt;= 0 &amp;&amp; (DT_I4)[year] &lt;= 2025</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(DT_I4)hour &gt;= 0 &amp;&amp; (DT_I4)hour &lt;= 23 &amp;&amp; (DT_I4)day &gt;= 1 &amp;&amp; (((DT_I4)month == 1 || (DT_I4)month == 3 || (DT_I4)month == 5 || (DT_I4)month == 7 || (DT_I4)month == 8 || (DT_I4)month == 10 || (DT_I4)month == 12) &amp;&amp; (DT_I4)day &lt;= 31) || (((DT_I4)month == 4 || (DT_I4)month == 6 || (DT_I4)month == 9 || (DT_I4)month == 11) &amp;&amp; (DT_I4)day &lt;= 30) || ((DT_I4)month == 2 &amp;&amp; (((DT_I4)year % 4 == 0 &amp;&amp; (DT_I4)year % 100 != 0) || (DT_I4)year % 400 == 0) &amp;&amp; (DT_I4)day &lt;= 29) || ((DT_I4)month == 2 &amp;&amp; (DT_I4)day &lt;= 28)) &amp;&amp; SUBSTRING(week, 1, 1) &gt;= &quot;0&quot; &amp;&amp; SUBSTRING(week, 1, 1) &lt;= &quot;4&quot; &amp;&amp; (DT_I4)month &gt;= 1 &amp;&amp; (DT_I4)month &lt;= 12 &amp;&amp; RIGHT(quarter, 1) &gt;= &quot;1&quot; &amp;&amp; RIGHT(quarter, 1) &lt;= &quot;4&quot; &amp;&amp; (DT_I4)year &gt;= 0 &amp;&amp; (DT_I4)year &lt;= 2025</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the order in which the conditions will be evaluated."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Invalid Numbers]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Invalid Numbers"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT-ODS_time_dim\DCNV-Date"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -353,13 +471,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[LEFT](#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]},10)</property>
+                          name="Expression">SUBSTRING(#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]},1,FINDSTRING(#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]}," ",1) - 1)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">LEFT(date,10)</property>
+                          name="FriendlyExpression">SUBSTRING(date,1,FINDSTRING(date," ",1) - 1)</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -367,7 +485,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="5"
+                      length="8"
                       lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]"
                       name="Time"
                       truncationRowDisposition="FailComponent">
@@ -376,13 +494,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[RIGHT](#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]},5)</property>
+                          name="Expression">SUBSTRING(#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]},FINDSTRING(#{Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]}," ",1) + 1,5)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">RIGHT(date,5)</property>
+                          name="FriendlyExpression">SUBSTRING(date,FINDSTRING(date," ",1) + 1,5)</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -913,9 +1031,14 @@
               startId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT-ODS_time_dim.Paths[Valid Data]"
-              endId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]"
+              endId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Inputs[Conditional Split Input]"
               name="Valid Data"
               startId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Valid Data]" />
+            <path
+              refId="Package\DFT-ODS_time_dim.Paths[Valid Numbers]"
+              endId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]"
+              name="Valid Numbers"
+              startId="Package\DFT-ODS_time_dim\CSPL-Validate Numbers.Outputs[Valid Numbers]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
