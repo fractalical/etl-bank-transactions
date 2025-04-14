@@ -11,10 +11,36 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ODS_time_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{12AA77C8-5E16-4E05-9CEF-33FC2FF3AEFC}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{CDDA2B1D-D881-494C-B48B-2B03E3DF6B2F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AB144D61-F61F-4169-875E-363DB21DA809}"
+      DTS:ObjectName="localhost.group_project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_ODS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_time_dim-{AB144D61-F61F-4169-875E-363DB21DA809}localhost.group_project_ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6EF688A0-4B9E-484F-A7C2-174C1B4836A5}"
+      DTS:ObjectName="localhost.group_project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_time_dim-{6EF688A0-4B9E-484F-A7C2-174C1B4836A5}localhost.group_project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -32,172 +58,27 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT-ODS_time_dim\Data Conversion"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion"
+              refId="Package\DFT-ODS_time_dim\CSPL-Validate Data"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data."
+              name="CSPL-Validate Data"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_time_dim\Data Conversion.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
-                      cachedDataType="wstr"
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input].Columns[time_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
                       cachedLength="10"
-                      cachedName="Date"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Date]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Date_date]"
-                      dataType="dbDate"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Output].Columns[Date_date]"
-                      name="Date_date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Data Conversion.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT-ODS_time_dim\Data Conversion 1"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 1"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-ODS_time_dim\Data Conversion 1.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
+                      cachedName="time_key"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[time_key]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion 1.Inputs[Data Conversion Input].Columns[Time]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="Time"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Time]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Output].Columns[Time_time]"
-                      dataType="dbTime"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Output].Columns[Time_time]"
-                      name="Time_time"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Time]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Data Conversion 1.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT-ODS_time_dim\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-ODS_time_dim\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column.Inputs[Derived Column Input].Columns[date]"
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input].Columns[date]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -209,19 +90,262 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Valid Data]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Valid Data"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">LEN(TRIM([time_key])) &gt; 0 &amp;&amp; LEN(TRIM([date])) &gt; 0 &amp;&amp; FINDSTRING([date], " ", 1) &gt; 0</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression."
+                      expressionType="Notify"
+                      name="FriendlyExpression">LEN(TRIM(time_key)) &gt; 0 &amp;&amp; LEN(TRIM(date)) &gt; 0 &amp;&amp; FINDSTRING(date, " ", 1) &gt; 0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the order in which the conditions will be evaluated."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Invalid Data]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Invalid Data"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_time_dim\DCNV-Date"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV-Date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_time_dim\DCNV-Date.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Date.Inputs[Data Conversion Input].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Date"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\DCNV-Date.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Output].Columns[Date_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Output].Columns[Date_date]"
+                      name="Date_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\DCNV-Date.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_time_dim\DCNV-Time"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCNV-Time"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_time_dim\DCNV-Time.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Time.Inputs[Data Conversion Input].Columns[Time]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Time"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\DCNV-Time.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Output].Columns[Time_time]"
+                      dataType="dbTime"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Output].Columns[Time_time]"
+                      name="Time_time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\DCNV-Time.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT-ODS_time_dim\DER-Split DateTime"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER-Split DateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input].Columns[date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="date"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                      refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Date]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Date]"
                       name="Date"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -239,12 +363,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Time]"
+                      refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="5"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output].Columns[Time]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]"
                       name="Time"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -265,23 +389,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -290,96 +414,214 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT-ODS_time_dim\Derived Column 1"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 1"
-              usesDispositions="true">
+              refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST-ODS_time_dim"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ODS_time_dim]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.group_project_ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.group_project_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_time_dim\Derived Column 1.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
+                  refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[time_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="time_key"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[time_key]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[hour]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hour"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[hour]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[hour]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[day]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="day"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[day]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[day]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[week]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="week"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[week]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[week]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[month]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="month"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[month]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[quarter]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="quarter"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[quarter]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[year]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[year]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].Columns[Time]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Time"
+                      externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      lineageId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output].Columns[Time]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
+                      codePage="1251"
+                      dataType="str"
+                      length="10"
+                      name="time_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[time]"
+                      dataType="dbTime2"
+                      name="time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[hour]"
+                      dataType="i4"
+                      name="hour" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[day]"
+                      dataType="i4"
+                      name="day" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[week]"
+                      codePage="1251"
+                      dataType="str"
+                      length="10"
+                      name="week" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[month]"
+                      dataType="i4"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[quarter]"
+                      codePage="1251"
+                      dataType="str"
+                      length="10"
+                      name="quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column 1.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
+                  refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column 1.Inputs[Derived Column Input]">
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT-ODS_time_dim\Derived Column 2"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 2"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\DFT-ODS_time_dim\Derived Column 2.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column 2.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT-ODS_time_dim\Derived Column 2.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT-ODS_time_dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -438,8 +680,8 @@
               <connections>
                 <connection
                   refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Connections[OleDbConnection]"
-                  connectionManagerID="{6628817D-43C1-418C-B929-C7A62349FC4A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[WIN-S7VOHSP5VFS.group_project_STA]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.group_project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.group_project_STA]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -450,12 +692,12 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[time_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[time_key]"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[time_key]"
                       name="time_key"
                       truncationRowDisposition="FailComponent" />
@@ -494,12 +736,12 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[week]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[week]"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[week]"
                       name="week"
                       truncationRowDisposition="FailComponent" />
@@ -516,12 +758,12 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[quarter]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].Columns[quarter]"
                       name="quarter"
                       truncationRowDisposition="FailComponent" />
@@ -541,51 +783,41 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[time_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="time_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="dbTimeStamp"
                       name="date" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[hour]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="hour" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[day]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="day" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[week]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="week" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[month]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="month" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[quarter]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="quarter" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output].ExternalColumns[year]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="year" />
                   </externalMetadataColumns>
                 </output>
@@ -596,58 +828,48 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[time_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[time_key]"
                       name="time_key" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="dbTimeStamp"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[date]"
                       name="date" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[hour]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[hour]"
                       name="hour" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[day]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[day]"
                       name="day" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[week]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[week]"
                       name="week" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[month]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[month]"
                       name="month" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[quarter]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[quarter]"
                       name="quarter" />
                     <outputColumn
                       refId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[year]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       lineageId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Error Output].Columns[year]"
                       name="year" />
                     <outputColumn
@@ -671,29 +893,29 @@
           <paths>
             <path
               refId="Package\DFT-ODS_time_dim.Paths[Data Conversion Output]"
-              endId="Package\DFT-ODS_time_dim\Data Conversion 1.Inputs[Data Conversion Input]"
+              endId="Package\DFT-ODS_time_dim\DCNV-Time.Inputs[Data Conversion Input]"
               name="Data Conversion Output"
-              startId="Package\DFT-ODS_time_dim\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\DFT-ODS_time_dim\DCNV-Date.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT-ODS_time_dim.Paths[Data Conversion Output1]"
-              endId="Package\DFT-ODS_time_dim\Derived Column 2.Inputs[Derived Column Input]"
+              endId="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\DFT-ODS_time_dim\Data Conversion 1.Outputs[Data Conversion Output]" />
+              startId="Package\DFT-ODS_time_dim\DCNV-Time.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT-ODS_time_dim.Paths[Derived Column Output]"
-              endId="Package\DFT-ODS_time_dim\Derived Column 1.Inputs[Derived Column Input]"
+              endId="Package\DFT-ODS_time_dim\DCNV-Date.Inputs[Data Conversion Input]"
               name="Derived Column Output"
-              startId="Package\DFT-ODS_time_dim\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\DFT-ODS_time_dim.Paths[Derived Column Output1]"
-              endId="Package\DFT-ODS_time_dim\Data Conversion.Inputs[Data Conversion Input]"
-              name="Derived Column Output"
-              startId="Package\DFT-ODS_time_dim\Derived Column 1.Outputs[Derived Column Output]" />
+              startId="Package\DFT-ODS_time_dim\DER-Split DateTime.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT-ODS_time_dim.Paths[OLE DB Source Output]"
-              endId="Package\DFT-ODS_time_dim\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
               startId="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT-ODS_time_dim.Paths[Valid Data]"
+              endId="Package\DFT-ODS_time_dim\DER-Split DateTime.Inputs[Derived Column Input]"
+              name="Valid Data"
+              startId="Package\DFT-ODS_time_dim\CSPL-Validate Data.Outputs[Valid Data]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -711,8 +933,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{4AB0608E-B679-4F96-8DCC-2A5A77513905}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.ODS_time_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{AB144D61-F61F-4169-875E-363DB21DA809}"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.ODS_time_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -787,91 +1009,41 @@
     design-time-name="Package\DFT-ODS_time_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DFT-ODS_time_dim\DCNV-Date"
+          TopLeft="23,311.5" />
         <NodeLayout
           Size="205,42"
           Id="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim"
-          TopLeft="105.5,20.5" />
+          TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="170,42"
-          Id="Package\DFT-ODS_time_dim\Data Conversion 1"
-          TopLeft="121.5,271.5" />
+          Size="135.5,42"
+          Id="Package\DFT-ODS_time_dim\DCNV-Time"
+          TopLeft="35.5,412.958333336024" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\DFT-ODS_time_dim\Derived Column 2"
-          TopLeft="221.5,342.5" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\DFT-ODS_time_dim\Derived Column"
-          TopLeft="108.5,97.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\DFT-ODS_time_dim\Data Conversion"
-          TopLeft="114.5,203.5" />
+          Size="173,42"
+          Id="Package\DFT-ODS_time_dim\CSPL-Validate Data"
+          TopLeft="21.5,107.5" />
         <NodeLayout
           Size="167,42"
-          Id="Package\DFT-ODS_time_dim\Derived Column 1"
-          TopLeft="103.5,158.5" />
+          Id="Package\DFT-ODS_time_dim\DER-Split DateTime"
+          TopLeft="24.5,209.5" />
         <EdgeLayout
-          Id="Package\DFT-ODS_time_dim.Paths[OLE DB Source Output]"
-          TopLeft="208,62.5">
+          Id="Package\DFT-ODS_time_dim.Paths[Data Conversion Output]"
+          TopLeft="105.625,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20.5,35"
+              EndConnector="0,59.4583333360239"
               Start="0,0"
-              End="-20.5,27.5">
+              End="0,51.9583333360239">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.5"
-                    Point2="0,17.5"
-                    Point3="-4,17.5" />
-                  <mssgle:LineSegment
-                    End="-16.5,17.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.5,17.5"
-                    Point2="-20.5,17.5"
-                    Point3="-20.5,21.5" />
-                  <mssgle:LineSegment
-                    End="-20.5,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_time_dim.Paths[Derived Column Output1]"
-          TopLeft="103.5,185.166666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11,39.3333333333333"
-              Start="0,0"
-              End="3.5,39.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,35.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,35.3333333333333"
-                    Point2="-22.5,39.3333333333333"
-                    Point3="-18.5,39.3333333333333" />
-                  <mssgle:LineSegment
-                    End="3.5,39.3333333333333" />
+                    End="0,51.9583333360239" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -882,30 +1054,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_time_dim.Paths[Derived Column Output]"
-          TopLeft="266.5,118.5">
+          TopLeft="108,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="4,61"
+              EndConnector="0,60"
               Start="0,0"
-              End="11.5,61">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="22.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,0"
-                    Point2="26.5,0"
-                    Point3="26.5,4" />
-                  <mssgle:LineSegment
-                    End="26.5,57" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.5,57"
-                    Point2="26.5,61"
-                    Point3="22.5,61" />
-                  <mssgle:LineSegment
-                    End="11.5,61" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -914,66 +1074,70 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_time_dim.Paths[Valid Data]"
+          TopLeft="108,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.24654296875,21.37548828125,46.4930859375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_time_dim.Paths[OLE DB Source Output]"
+          TopLeft="108,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="201.5,42"
+          Id="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim"
+          TopLeft="6.5,592.333331342373" />
         <EdgeLayout
           Id="Package\DFT-ODS_time_dim.Paths[Data Conversion Output1]"
-          TopLeft="206.5,313.5">
+          TopLeft="105.25,454.958333336024">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="98.5,29"
+              EndConnector="0,137.374998006349"
               Start="0,0"
-              End="98.5,21.5">
+              End="0,129.874998006349">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5"
-                    Point2="0,14.5"
-                    Point3="4,14.5" />
-                  <mssgle:LineSegment
-                    End="94.5,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94.5,14.5"
-                    Point2="98.5,14.5"
-                    Point3="98.5,18.5" />
-                  <mssgle:LineSegment
-                    End="98.5,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_time_dim.Paths[Data Conversion Output]"
-          TopLeft="195,245.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.5,26"
-              Start="0,0"
-              End="11.5,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9"
-                    Point2="0,13"
-                    Point3="4,13" />
-                  <mssgle:LineSegment
-                    End="7.5,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.5,13"
-                    Point2="11.5,13"
-                    Point3="11.5,17" />
-                  <mssgle:LineSegment
-                    End="11.5,18.5" />
+                    End="0,129.874998006349" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -987,6 +1151,19 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DFT-ODS_time_dim\OLE_SRC STA_time_dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT-ODS_time_dim\OLE_DST-ODS_time_dim">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
