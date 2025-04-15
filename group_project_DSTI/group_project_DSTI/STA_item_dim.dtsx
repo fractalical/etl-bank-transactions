@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{1BCF5A39-BEC8-4460-8EC2-F9F3EE8A3F75}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{E4704457-18C9-46D8-ABF6-ED885D0B664E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,7 +111,7 @@
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:TextQualifier="_x0022_"
           DTS:CodePage="1251"
           DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\item_dim.csv">
           <DTS:FlatFileColumns>
