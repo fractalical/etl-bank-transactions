@@ -11,16 +11,28 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{19E3310E-51A6-4DD3-B16D-DAEF02C225E3}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2782F56D-3985-44B1-ADEE-C2CBE402611F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B590BF6A-2483-48D8-94BF-05CD22CE4B8F}"
+      DTS:ObjectName="localhost.group_project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B590BF6A-2483-48D8-94BF-05CD22CE4B8F}localhost.group_project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[trans dim]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{0E7EA3E0-11B8-45B8-BBFB-5E1573115C77}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:DTSID="{1B6C3E11-8B47-4163-9AED-6DB89BE85DC1}"
+      DTS:ObjectName="trans dim">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -29,8 +41,8 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Administrator\Downloads\Trans_dim.csv">
+          DTS:CodePage="1251"
+          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\Trans_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +51,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="payment_key"
-              DTS:DTSID="{F976FC9E-36ED-4AD2-AADB-91AC56BE6126}"
+              DTS:DTSID="{D7F54E2B-7154-4A9B-BE53-73CA2772E7A1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +60,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="trans_type"
-              DTS:DTSID="{A101EE02-5C8A-4427-9715-9C5B404AA451}"
+              DTS:DTSID="{C0DEC61B-D855-47B7-8DF8-D89C012CCA79}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +69,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="bank_name"
-              DTS:DTSID="{67FB8CB3-0710-4591-A7F3-20C5305CFC6B}"
+              DTS:DTSID="{4837294D-2E6D-423A-BF7E-E746996460E2}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -102,8 +114,8 @@
               <connections>
                 <connection
                   refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[trans dim]"
+                  connectionManagerRefId="Package.ConnectionManagers[trans dim]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -113,7 +125,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].Columns[payment_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -135,7 +147,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].Columns[trans_type]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -157,7 +169,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].Columns[bank_name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -182,19 +194,19 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].ExternalColumns[payment_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="payment_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].ExternalColumns[trans_type]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="trans_type" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].ExternalColumns[bank_name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="bank_name" />
@@ -288,8 +300,8 @@
               <connections>
                 <connection
                   refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Connections[OleDbConnection]"
-                  connectionManagerID="{6628817D-43C1-418C-B929-C7A62349FC4A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[WIN-S7VOHSP5VFS.group_project_STA]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.group_project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.group_project_STA]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -303,7 +315,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[payment_key]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="payment_key"
@@ -311,7 +323,7 @@
                       lineageId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].Columns[payment_key]" />
                     <inputColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[trans_type]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="trans_type"
@@ -319,7 +331,7 @@
                       lineageId="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim.Outputs[Flat File Source Output].Columns[trans_type]" />
                     <inputColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[bank_name]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="bank_name"
@@ -330,21 +342,21 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="payment_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[trans_type]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="20"
                       name="trans_type" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_Trans_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[bank_name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="bank_name" />
                   </externalMetadataColumns>
                 </input>
@@ -398,7 +410,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6628817D-43C1-418C-B929-C7A62349FC4A}"
+          SQLTask:Connection="{B590BF6A-2483-48D8-94BF-05CD22CE4B8F}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_Trans_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -464,13 +476,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="204,42"
-          Id="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim"
-          TopLeft="122.5,36.5" />
-        <NodeLayout
           Size="154,42"
           Id="Package\DFT-STA_Trans_dim\OLE_DST-STA"
           TopLeft="143.5,151.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DFT-STA_Trans_dim\FF_SRC STA_Trans_dim"
+          TopLeft="122.5,36.5" />
         <EdgeLayout
           Id="Package\DFT-STA_Trans_dim.Paths[Flat File Source Output]"
           TopLeft="222.5,78.5">

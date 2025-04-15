@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>group_project_DSTI</Name>
-    <LastWriteTime>2025-04-14T14:24:28.652817Z</LastWriteTime>
+    <LastWriteTime>2025-04-15T14:21:08.3265108Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,12 +18,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STA_Trans_dim.dtsx</Name>
-      <LastWriteTime>2025-04-10T12:56:01.1779019Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T14:19:28.7379914Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STA_store_dim.dtsx</Name>
-      <LastWriteTime>2025-04-10T12:56:01.1609024Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T14:16:02.0021034Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -38,7 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_item_dim.dtsx</Name>
-      <LastWriteTime>2025-04-15T14:05:35.1161936Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T14:12:46.1066517Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -49,6 +49,16 @@
     <ProjectBuildItemInfo>
       <Name>STA_time_dim.dtsx</Name>
       <LastWriteTime>2025-04-14T11:14:12.4780544Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>ODS_store_dim.dtsx</Name>
+      <LastWriteTime>2025-04-15T14:17:53.2924129Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>ODS_trans_dim.dtsx</Name>
+      <LastWriteTime>2025-04-15T14:21:08.303536Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

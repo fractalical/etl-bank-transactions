@@ -11,16 +11,28 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{56B59232-E531-4EF9-B0AA-A9B3576EC9AF}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{494BFD1D-8F7B-4002-AE2E-E8D7863515A2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3A78454D-26DA-4D0E-A5A4-926273B842F3}"
+      DTS:ObjectName="localhost.group_project_STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{3A78454D-26DA-4D0E-A5A4-926273B842F3}localhost.group_project_STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[store_dim]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{289F98B0-3665-417E-9573-87F65ACFA7FC}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:DTSID="{EAB8FFC4-C07C-487A-A1DE-BE8B878835D7}"
+      DTS:ObjectName="store_dim">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -29,8 +41,8 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\Administrator\Downloads\store_dim.csv">
+          DTS:CodePage="1251"
+          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\store_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +51,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="store_key"
-              DTS:DTSID="{112E7A17-14B0-465C-9C14-5026DBD77A65}"
+              DTS:DTSID="{AEBE8B36-06AC-4577-952A-2DA36693457A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +60,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="division"
-              DTS:DTSID="{9C68FD56-B0AD-4FCA-A91D-46757E00122D}"
+              DTS:DTSID="{37E5E04B-C48F-4F62-9AFB-4607B84EB759}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +69,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="district"
-              DTS:DTSID="{0E6C54F3-22EF-47E8-BF14-1C8B644DA02C}"
+              DTS:DTSID="{FBF5AB1B-2BC1-475E-9767-D9E50A52763E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +78,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="upazila"
-              DTS:DTSID="{D8B00270-6838-4385-B7DC-8A05C8EA9368}"
+              DTS:DTSID="{2946C97A-ABCA-4F00-B08F-CA80FE9F4790}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -111,8 +123,8 @@
               <connections>
                 <connection
                   refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[store_dim]"
+                  connectionManagerRefId="Package.ConnectionManagers[store_dim]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -122,7 +134,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[store_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -144,7 +156,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[division]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -166,7 +178,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[district]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -188,7 +200,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[upazila]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -213,25 +225,25 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].ExternalColumns[store_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="store_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].ExternalColumns[division]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="division" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].ExternalColumns[district]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="district" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].ExternalColumns[upazila]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="upazila" />
@@ -325,8 +337,8 @@
               <connections>
                 <connection
                   refId="Package\DFT-STA_store_dim\OLE_DST-STA.Connections[OleDbConnection]"
-                  connectionManagerID="{6628817D-43C1-418C-B929-C7A62349FC4A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[WIN-S7VOHSP5VFS.group_project_STA]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.group_project_STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.group_project_STA]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -340,7 +352,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[store_key]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="store_key"
@@ -348,7 +360,7 @@
                       lineageId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[store_key]" />
                     <inputColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[division]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="division"
@@ -356,7 +368,7 @@
                       lineageId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[division]" />
                     <inputColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[district]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="district"
@@ -364,7 +376,7 @@
                       lineageId="Package\DFT-STA_store_dim\FF_SRC STA_store_dim.Outputs[Flat File Source Output].Columns[district]" />
                     <inputColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[upazila]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="upazila"
@@ -375,25 +387,25 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[store_key]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
-                      length="50"
+                      length="10"
                       name="store_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[division]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="division" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[district]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="district" />
                     <externalMetadataColumn
                       refId="Package\DFT-STA_store_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[upazila]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="upazila" />
@@ -449,7 +461,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6628817D-43C1-418C-B929-C7A62349FC4A}"
+          SQLTask:Connection="{3A78454D-26DA-4D0E-A5A4-926273B842F3}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_store_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -517,37 +529,25 @@
         <NodeLayout
           Size="154,42"
           Id="Package\DFT-STA_store_dim\OLE_DST-STA"
-          TopLeft="100.5,193.5" />
+          TopLeft="120,194.583333327952" />
         <NodeLayout
           Size="200,42"
           Id="Package\DFT-STA_store_dim\FF_SRC STA_store_dim"
           TopLeft="97.5,76.5" />
         <EdgeLayout
           Id="Package\DFT-STA_store_dim.Paths[Flat File Source Output]"
-          TopLeft="197.5,118.5">
+          TopLeft="197.25,118.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20,75"
+              EndConnector="0,76.0833333279523"
               Start="0,0"
-              End="-20,67.5">
+              End="0,68.5833333279523">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.5"
-                    Point2="0,37.5"
-                    Point3="-4,37.5" />
-                  <mssgle:LineSegment
-                    End="-16,37.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16,37.5"
-                    Point2="-20,37.5"
-                    Point3="-20,41.5" />
-                  <mssgle:LineSegment
-                    End="-20,67.5" />
+                    End="0,68.5833333279523" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
