@@ -1,26 +1,109 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="4/15/2025 8:33:40 PM"
+  DTS:CreationDate="4/7/2025 1:38:14 AM"
   DTS:CreationName="Microsoft.Package"
-  DTS:CreatorComputerName="WIN-M6CJ4GQUVLV"
-  DTS:CreatorName="WIN-M6CJ4GQUVLV\user"
-  DTS:DTSID="{3562315D-FA86-44EE-9019-ACB8BD4D6017}"
+  DTS:CreatorComputerName="WIN-S7VOHSP5VFS"
+  DTS:CreatorName="WIN-S7VOHSP5VFS\Administrator"
+  DTS:DTSID="{AE3C173F-A7AB-4BD1-8A14-96C3404CF621}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package2"
+  DTS:ObjectName="STA_fact_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B7F4575A-A30E-4F8A-B0A1-3CC0FB788441}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E6EC1CE4-11CE-4985-9F19-79CABA9C1C7F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[fact table]"
+      DTS:refId="Package.ConnectionManagers[fact_dim]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{ED0F2240-495C-485D-B8C7-8ABF19402E01}"
-      DTS:ObjectName="fact table">
+      DTS:DTSID="{8F3FF828-B7BF-41E7-B9C3-99A5C842935B}"
+      DTS:ObjectName="fact_dim">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\fact_table.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_key"
+              DTS:DTSID="{421F30DD-F7CB-4848-94B7-7569272CA541}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_name"
+              DTS:DTSID="{8806AD07-FD68-4001-B77E-76A950E4DA46}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="desc"
+              DTS:DTSID="{F4BF83A4-070C-49D7-ABD4-74295756D248}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit_price"
+              DTS:DTSID="{3D60DE72-9CA1-4E0F-AFBB-C3B6E1294242}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="man_country"
+              DTS:DTSID="{E376F38B-8E9A-4D9F-8D39-56365D3F791E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="supplier"
+              DTS:DTSID="{C0A27EAE-10CC-4E5D-9B87-AB9BB2D034FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{98CF752B-2572-4A26-A075-FE3E53DD632F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[fact_table]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{19BCE993-A5E2-4517-BC4C-71AFF090724B}"
+      DTS:ObjectName="fact_table">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -29,7 +112,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1251"
+          DTS:CodePage="65001"
           DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\fact_table.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
@@ -39,7 +122,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="payment_key"
-              DTS:DTSID="{0A2A3D32-D451-41E8-83AF-C57D9DC8275A}"
+              DTS:DTSID="{57E9612D-BAA8-4199-B8BD-6BC6BA1ADB0D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="coustomer_key"
-              DTS:DTSID="{D534AA91-8F40-4DE2-8E2E-8BA234CBEE9C}"
+              DTS:DTSID="{30FC884F-1C63-4FAE-8DFB-99E866724ED9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="time_key"
-              DTS:DTSID="{3BF6C898-2CFC-4DF8-8475-CD0630963CA3}"
+              DTS:DTSID="{568418B4-0C79-4B01-9A02-6DC5C386DF39}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="item_key"
-              DTS:DTSID="{E5C294B0-4D77-4600-8AEF-D0B4EB75DF4F}"
+              DTS:DTSID="{9CFC8B20-31C3-4BEB-AF0E-A7B2FF2BB875}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="store_key"
-              DTS:DTSID="{9B1A5C98-A8F2-4AFE-89D5-18631842A194}"
+              DTS:DTSID="{457F66FE-2B84-4DF2-A9DF-B1BFC0762B37}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +167,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="quantity"
-              DTS:DTSID="{CDDEEB9B-5AC2-41F1-BADE-C9F024A2EEFD}"
+              DTS:DTSID="{91BE3CCF-1094-4FBA-89DA-419180BBC71B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +176,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit"
-              DTS:DTSID="{A57A1248-9049-48F9-A428-75E3C7D10B73}"
+              DTS:DTSID="{EFFEFA4C-2F8A-4AC6-BAE5-C0452BE750FD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +185,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit_price"
-              DTS:DTSID="{037B0547-0854-45C8-96B8-682478A51D53}"
+              DTS:DTSID="{A5B95DAA-B7DD-4834-80DF-3F974B15CA09}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +194,90 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="total_price"
-              DTS:DTSID="{FCF0AF13-8032-4C36-8A89-ABB9061E5E17}"
+              DTS:DTSID="{B66BB4EB-52CF-4CF4-B181-9970C5FD85AF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8043102E-F2AC-4888-8185-6D64D0937F69}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Administrator\Downloads\item_dim.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_key"
+              DTS:DTSID="{B885075D-53B5-4B3E-A12F-DF3F8B963AE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="item_name"
+              DTS:DTSID="{7879020C-BFA1-49F9-8400-20A1587FA08E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="desc"
+              DTS:DTSID="{E42B39E6-7BBB-405B-B6E3-05D640C9A908}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit_price"
+              DTS:DTSID="{E6AEC0E5-2BDA-4734-A3F7-2041763C829A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="man_country"
+              DTS:DTSID="{6D093DCD-33A5-4C1A-A790-B15441BE0C94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="supplier"
+              DTS:DTSID="{AFFB12D1-4082-4365-B32B-607B8CF3A958}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unit"
+              DTS:DTSID="{95CE9FC8-CD49-444E-A9C9-885B79803319}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -120,26 +286,26 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.group_project_STA]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{A6EF2E9F-A181-4659-90BA-E2FCE2AB6B7D}"
+      DTS:DTSID="{694B81D0-39AC-4048-A1B9-D028C173EB03}"
       DTS:ObjectName="localhost.group_project_STA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{A6EF2E9F-A181-4659-90BA-E2FCE2AB6B7D}localhost.group_project_STA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_STA;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{694B81D0-39AC-4048-A1B9-D028C173EB03}localhost.group_project_STA;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\DFT-STA_item_dim"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{5D0F9FC1-585C-45E8-900F-514710EF58E9}"
+      DTS:DTSID="{9639A754-7F8D-4220-AD6F-1C4E694A2D0E}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="DFT-STA_item_dim"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -147,12 +313,12 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Flat File Source"
+              refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="1033"
-              name="Flat File Source"
+              name="FF_SRC STA_item_dim"
               usesDispositions="true"
               version="1">
               <properties>
@@ -167,25 +333,25 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[fact table]"
-                  connectionManagerRefId="Package.ConnectionManagers[fact table]"
+                  refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[fact_table]"
+                  connectionManagerRefId="Package.ConnectionManagers[fact_table]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[payment_key]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[payment_key]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[payment_key]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[payment_key]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[payment_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[payment_key]"
                       name="payment_key"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -200,14 +366,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[coustomer_key]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[coustomer_key]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[coustomer_key]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[coustomer_key]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[coustomer_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[coustomer_key]"
                       name="coustomer_key"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -222,14 +388,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[time_key]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[time_key]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[time_key]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[time_key]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[time_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[time_key]"
                       name="time_key"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -244,36 +410,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[item_key]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[store_key]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[item_key]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[store_key]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[item_key]"
-                      name="item_key"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[store_key]"
-                      codePage="1251"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_key]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[store_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[store_key]"
                       name="store_key"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -288,14 +432,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[quantity]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[quantity]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[quantity]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[quantity]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[quantity]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[quantity]"
                       name="quantity"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -310,14 +454,36 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[total_price]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[total_price]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[total_price]"
+                      name="total_price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      length="50"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]"
                       name="unit"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -332,14 +498,14 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]"
                       name="unit_price"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -354,15 +520,15 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total_price]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]"
+                      codePage="65001"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total_price]"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[item_key]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total_price]"
-                      name="total_price"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]"
+                      name="item_key"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -379,83 +545,83 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[payment_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="payment_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[coustomer_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="coustomer_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[time_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="time_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[item_key]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[item_key]"
+                      codePage="65001"
                       dataType="str"
                       length="50"
                       name="item_key" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[store_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="store_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[quantity]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="quantity" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="unit" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
+                      codePage="65001"
                       dataType="str"
                       length="50"
                       name="unit_price" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[total_price]"
-                      codePage="1251"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[unit]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="unit" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[payment_key]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="payment_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[coustomer_key]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="coustomer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[time_key]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="time_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[store_key]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="store_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[quantity]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].ExternalColumns[total_price]"
+                      codePage="65001"
                       dataType="str"
                       length="50"
                       name="total_price" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="65001"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
                       dataType="text"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -464,11 +630,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\DFT-STA_item_dim\OLE_DST-STA"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="OLE_DST-STA"
               usesDispositions="true"
               version="4">
               <properties>
@@ -501,7 +667,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -509,7 +675,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
+                  name="FastLoadKeepNulls">true</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -521,7 +687,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\DFT-STA_item_dim\OLE_DST-STA.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.group_project_STA]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.group_project_STA]"
                   description="The OLE DB runtime connection used to access the database."
@@ -529,137 +695,137 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="IgnoreFailure"
+                  errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[payment_key]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="payment_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[payment_key]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="coustomer_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[coustomer_key]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time_key]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="time_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[time_key]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[item_key]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[item_key]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="item_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[item_key]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[item_key]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[store_key]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[time_key]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="time_key"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[time_key]" />
+                    <inputColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[store_key]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="store_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[store_key]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[store_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[store_key]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="coustomer_key"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[coustomer_key]" />
+                    <inputColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[payment_key]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="payment_key"
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[payment_key]" />
+                    <inputColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="quantity"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[quantity]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[quantity]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unit]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[unit]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="unit"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unit_price]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[unit_price]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="unit_price"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[unit_price]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[unit_price]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_price]"
-                      cachedCodepage="1251"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].Columns[total_price]"
+                      cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="total_price"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_price]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total_price]" />
+                      externalMetadataColumnId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[total_price]"
+                      lineageId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output].Columns[total_price]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="time_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[store_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="store_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[item_key]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="item_key" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[time_key]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      name="time_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[store_key]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      name="store_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="coustomer_key" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="payment_key" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="quantity" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="unit" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="unit_price" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_price]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[total_price]"
                       codePage="1251"
                       dataType="str"
                       length="50"
@@ -669,22 +835,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT-STA_item_dim\OLE_DST-STA.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-STA_item_dim\OLE_DST-STA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-STA_item_dim\OLE_DST-STA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-STA_item_dim\OLE_DST-STA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -695,29 +861,30 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
+              endId="Package\DFT-STA_item_dim\OLE_DST-STA.Inputs[OLE DB Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              startId="Package\DFT-STA_item_dim\FF_SRC STA_item_dim.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\SQL_Truncate STA_item_dim"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B196507B-C3DE-42FC-B919-FFEDD1A6E13D}"
+      DTS:DTSID="{5132578C-F0FC-4CC5-926A-8D84F6C97C61}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="SQL_Truncate STA_item_dim"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{A6EF2E9F-A181-4659-90BA-E2FCE2AB6B7D}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_fact_table" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{694B81D0-39AC-4048-A1B9-D028C173EB03}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_fact_table"
+          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -725,11 +892,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{D58DA8B1-D330-499F-AE5E-2E3558A53082}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:DTSID="{51B4D59B-E905-43AB-B624-AC4509BBDC4E}"
+      DTS:From="Package\SQL_Truncate STA_item_dim"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\DFT-STA_item_dim" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -744,27 +911,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166.5,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="289,67.7083329970224" />
+          Size="176,42"
+          Id="Package\DFT-STA_item_dim"
+          TopLeft="248.5,148.5" />
         <NodeLayout
-          Size="151.5,42"
-          Id="Package\Data Flow Task"
-          TopLeft="293,162.499999192854" />
+          Size="226,42"
+          Id="Package\SQL_Truncate STA_item_dim"
+          TopLeft="228.5,69.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="370.5,109.708332997022">
+          TopLeft="339,111.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.7916661958314"
+              EndConnector="0,37"
               Start="0,0"
-              End="0,45.2916661958314">
+              End="0,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.2916661958314" />
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -777,32 +944,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\DFT-STA_item_dim">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.5,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="249.5,166.291665840687" />
+          Size="150.5,42"
+          Id="Package\DFT-STA_item_dim\OLE_DST-STA"
+          TopLeft="164,230.458332884022" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="236.5,271.916665316042" />
+          Size="197,42"
+          Id="Package\DFT-STA_item_dim\FF_SRC STA_item_dim"
+          TopLeft="140.5,112.833333118094" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="324.375,208.291665840687">
+          Id="Package\DFT-STA_item_dim.Paths[Flat File Source Output]"
+          TopLeft="239.125,154.833333118094">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63.624999475355"
+              EndConnector="0,75.6249997659272"
               Start="0,0"
-              End="0,56.124999475355">
+              End="0,68.1249997659272">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.124999475355" />
+                    End="0,68.1249997659272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -815,7 +982,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\DFT-STA_item_dim\OLE_DST-STA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

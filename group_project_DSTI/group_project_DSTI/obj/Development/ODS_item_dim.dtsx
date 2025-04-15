@@ -12,7 +12,7 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:VersionBuild="46"
-  DTS:VersionGUID="{A0FF0550-C4C1-4A8D-9759-B5D097CCDC0A}">
+  DTS:VersionGUID="{8842693D-A2E0-47D6-A911-9A64937C527D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -282,26 +282,26 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT-ODS_item_dim\DCNV"
+              refId="Package\DFT-ODS_item_dim\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="DCNV"
+              name="Data Conversion"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input]"
+                  refId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input].Columns[unit_price]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[unit_price]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="unit_price"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[unit_price]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input].Columns[replaced_unit]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input].Columns[replaced_unit]"
                       cachedDataType="wstr"
                       cachedLength="311"
                       cachedName="replaced_unit"
@@ -312,17 +312,17 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output]"
+                  refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[unit_price_fl]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[unit_price_fl]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="RedirectRow"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[unit_price_fl]"
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[unit_price_fl]"
                       name="unit_price_fl"
                       truncationRowDisposition="RedirectRow">
                       <properties>
@@ -338,13 +338,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[replaced_unit_nu]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[replaced_unit_nu]"
                       codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[replaced_unit_nu]"
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[replaced_unit_nu]"
                       name="replaced_unit_nu"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -363,22 +363,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -586,7 +586,7 @@
                       cachedDataType="r8"
                       cachedName="unit_price_fl"
                       externalMetadataColumnId="Package\DFT-ODS_item_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[unit_price_fl]" />
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[unit_price_fl]" />
                     <inputColumn
                       refId="Package\DFT-ODS_item_dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[replaced_unit_nu]"
                       cachedCodepage="1251"
@@ -594,7 +594,7 @@
                       cachedLength="50"
                       cachedName="replaced_unit_nu"
                       externalMetadataColumnId="Package\DFT-ODS_item_dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit]"
-                      lineageId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output].Columns[replaced_unit_nu]" />
+                      lineageId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output].Columns[replaced_unit_nu]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1817,7 +1817,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               refId="Package\DFT-ODS_item_dim.Paths[Data Conversion Output]"
               endId="Package\DFT-ODS_item_dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\DFT-ODS_item_dim\DCNV.Outputs[Data Conversion Output]" />
+              startId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT-ODS_item_dim.Paths[Derived Column Output]"
               endId="Package\DFT-ODS_item_dim\Script Component.Inputs[Input 0]"
@@ -1840,7 +1840,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[ValidRows]" />
             <path
               refId="Package\DFT-ODS_item_dim.Paths[ValidRows1]"
-              endId="Package\DFT-ODS_item_dim\DCNV.Inputs[Data Conversion Input]"
+              endId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input]"
               name="ValidRows"
               startId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[ValidRows]" />
           </paths>
@@ -1928,12 +1928,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
-          Id="Package\DFT-ODS_item_dim\DCNV"
-          TopLeft="86,377.416664993184" />
+          Id="Package\DFT-ODS_item_dim\Data Conversion"
+          TopLeft="85,481.958331140586" />
         <NodeLayout
           Size="154.5,42"
           Id="Package\DFT-ODS_item_dim\Derived Column"
-          TopLeft="97.5,161.208332997022" />
+          TopLeft="93,189.374999523783" />
         <NodeLayout
           Size="199.5,42"
           Id="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim"
@@ -1941,81 +1941,81 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="177,42"
           Id="Package\DFT-ODS_item_dim\OLE DB Destination"
-          TopLeft="76.5,443.083332036518" />
+          TopLeft="79.5,561.499999321997" />
         <NodeLayout
           Size="163,42"
           Id="Package\DFT-ODS_item_dim\Script Component"
-          TopLeft="87,231.833332181805" />
+          TopLeft="86,281.666665267614" />
         <NodeLayout
           Size="163.5,42"
           Id="Package\DFT-ODS_item_dim\Conditional Split 1"
-          TopLeft="82.5,304.583332843664" />
+          TopLeft="79,381.499999128281" />
         <NodeLayout
           Size="155,42"
           Id="Package\DFT-ODS_item_dim\Conditional Split"
-          TopLeft="97.5,93.2083329324507" />
+          TopLeft="96,100.249999564141" />
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[ValidRows1]"
-          TopLeft="164.375,346.583332843664">
+          TopLeft="162.125,423.499999128281">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.8333321495198"
+              EndConnector="0,58.458332012305"
               Start="0,0"
-              End="0,23.3333321495198">
+              End="0,50.958332012305">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3333321495198" />
+                    End="0,50.958332012305" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.35076171875,6.79215435600992,46.7015234375,9.7490234375"
+              BoundingBox="-23.35076171875,20.6046542874025,46.7015234375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[ValidRows]"
-          TopLeft="174.875,135.208332932451">
+          TopLeft="171.875,142.249999564141">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.0000000645713"
+              EndConnector="0,47.1249999596424"
               Start="0,0"
-              End="0,18.5000000645713">
+              End="0,39.6249999596424">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5000000645713" />
+                    End="0,39.6249999596424" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.35076171875,4.37548831353567,46.7015234375,9.7490234375"
+              BoundingBox="-23.35076171875,14.9379882610712,46.7015234375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[Output 0]"
-          TopLeft="166.375,273.833332181805">
+          TopLeft="164.125,323.666665267614">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.7500006618589"
+              EndConnector="0,57.8333338606677"
               Start="0,0"
-              End="0,23.2500006618589">
+              End="0,50.3333338606677">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.2500006618589" />
+                    End="0,50.3333338606677" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2026,18 +2026,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[OLE DB Source Output]"
-          TopLeft="176.375,60.458333303738">
+          TopLeft="175.625,60.458333303738">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.7499996287127"
+              EndConnector="0,39.791666260403"
               Start="0,0"
-              End="0,25.2499996287127">
+              End="0,32.291666260403">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.2499996287127" />
+                    End="0,32.291666260403" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2048,18 +2048,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[Derived Column Output]"
-          TopLeft="171.625,203.208332997022">
+          TopLeft="168.875,231.374999523783">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28.6249991847831"
+              EndConnector="0,50.2916657438303"
               Start="0,0"
-              End="0,21.1249991847831">
+              End="0,42.7916657438303">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1249991847831" />
+                    End="0,42.7916657438303" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2070,18 +2070,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[Data Conversion Output]"
-          TopLeft="164.75,419.416664993184">
+          TopLeft="165.75,523.958331140586">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23.6666670433343"
+              EndConnector="0,37.5416681814105"
               Start="0,0"
-              End="0,16.1666670433343">
+              End="0,30.0416681814105">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.1666670433343" />
+                    End="0,30.0416681814105" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
