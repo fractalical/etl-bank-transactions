@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>group_project_DSTI</Name>
-    <LastWriteTime>2025-04-15T14:21:08.3265108Z</LastWriteTime>
+    <LastWriteTime>2025-04-15T19:39:46.5207585Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STA_customer_dim.dtsx</Name>
-      <LastWriteTime>2025-04-14T11:10:37.7331796Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T15:40:14.3917834Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,12 +33,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_customer_dim.dtsx</Name>
-      <LastWriteTime>2025-04-14T13:57:55.7267334Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T19:15:53.7616421Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_item_dim.dtsx</Name>
-      <LastWriteTime>2025-04-15T14:46:04.2960393Z</LastWriteTime>
+      <LastWriteTime>2025-04-15T14:59:03.9690957Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -59,6 +59,16 @@
     <ProjectBuildItemInfo>
       <Name>ODS_trans_dim.dtsx</Name>
       <LastWriteTime>2025-04-15T14:21:08.303536Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DWH_load_package.dtsx</Name>
+      <LastWriteTime>2025-04-15T19:15:53.7529123Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>STA_fact_table.dtsx</Name>
+      <LastWriteTime>2025-04-15T19:39:46.4921371Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
