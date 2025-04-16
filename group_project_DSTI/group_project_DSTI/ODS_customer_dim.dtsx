@@ -122,13 +122,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">LEN(TRIM([name])) &gt; 0 &amp;&amp; LEN(TRIM([contact_no])) &gt; 0 &amp;&amp; LEN(TRIM([nid])) &gt; 0</property>
+                      name="Expression">(LEN(TRIM([name])) &gt; 0 &amp;&amp; TRIM([name]) != "None") &amp;&amp; (LEN(TRIM([contact_no])) &gt; 0 &amp;&amp; TRIM([contact_no]) != "None") &amp;&amp; (LEN(TRIM([nid])) &gt; 0 &amp;&amp; TRIM([nid]) != "None")</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names instead of lineage identifiers."
                       expressionType="Notify"
-                      name="FriendlyExpression">LEN(TRIM(name)) &gt; 0 &amp;&amp; LEN(TRIM(contact_no)) &gt; 0 &amp;&amp; LEN(TRIM(nid)) &gt; 0</property>
+                      name="FriendlyExpression">(LEN(TRIM(name)) &gt; 0 &amp;&amp; TRIM(name) != "None") &amp;&amp; (LEN(TRIM(contact_no)) &gt; 0 &amp;&amp; TRIM(contact_no) != "None") &amp;&amp; (LEN(TRIM(nid)) &gt; 0 &amp;&amp; TRIM(nid) != "None")</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions when the transformation runs. The evaluation order is from the lowest to the highest value."
