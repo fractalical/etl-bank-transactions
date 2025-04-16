@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ODS_trans_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{3F1B0192-ADA6-4BF1-B726-9F6C9B23E754}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{651B785C-AE99-4EC0-9648-455293034CA5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -69,6 +69,111 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, direct rows with 'old' database dates to a different output than rows with 'new' dates."
+              name="CSPL-Check Empty Values"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[payment_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="payment_key"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[payment_key]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[trans_type]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="trans_type"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[trans_type]" />
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[bank_name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="bank_name"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[bank_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Non Empty Values]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Non Empty Values"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(LEN(TRIM([payment_key])) &gt; 0 &amp;&amp; TRIM([payment_key]) != "None") &amp;&amp; (LEN(TRIM([trans_type])) &gt; 0 &amp;&amp; TRIM([trans_type]) != "None") &amp;&amp; (LEN(TRIM([bank_name])) &gt; 0 &amp;&amp; TRIM([bank_name]) != "None")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names instead of lineage identifiers."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(LEN(TRIM(payment_key)) &gt; 0 &amp;&amp; TRIM(payment_key) != "None") &amp;&amp; (LEN(TRIM(trans_type)) &gt; 0 &amp;&amp; TRIM(trans_type) != "None") &amp;&amp; (LEN(TRIM(bank_name)) &gt; 0 &amp;&amp; TRIM(bank_name) != "None")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions when the transformation runs. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Empty Values]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Empty Values"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT-ODS_customer_dim\DCNV-Name Types"
               componentClassID="Microsoft.DataConvert"
@@ -519,8 +624,13 @@
               name="Data Conversion Output"
               startId="Package\DFT-ODS_customer_dim\DCNV-Name Types.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
+              refId="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
               endId="Package\DFT-ODS_customer_dim\DCNV-Name Types.Inputs[Data Conversion Input]"
+              name="Non Empty Values"
+              startId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Non Empty Values]" />
+            <path
+              refId="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
+              endId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
               startId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output]" />
           </paths>
@@ -568,9 +678,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="203,42"
+          Size="197.5,42"
           Id="Package\DFT-ODS_customer_dim"
-          TopLeft="314.5,174.5" />
+          TopLeft="314,174.5" />
         <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
@@ -581,9 +691,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="37.5,71"
+              EndConnector="34.25,71"
               Start="0,0"
-              End="37.5,63.5">
+              End="34.25,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -594,13 +704,13 @@
                     Point2="0,35.5"
                     Point3="4,35.5" />
                   <mssgle:LineSegment
-                    End="33.5,35.5" />
+                    End="30.25,35.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.5,35.5"
-                    Point2="37.5,35.5"
-                    Point3="37.5,39.5" />
+                    Point1="30.25,35.5"
+                    Point2="34.25,35.5"
+                    Point3="34.25,39.5" />
                   <mssgle:LineSegment
-                    End="37.5,63.5" />
+                    End="34.25,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -616,33 +726,37 @@
     design-time-name="Package\DFT-ODS_customer_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="225,42"
           Id="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim"
-          TopLeft="130.5,242.624999991928" />
+          TopLeft="10.5000000000001,249.583333134237" />
         <NodeLayout
           Size="157,42"
           Id="Package\DFT-ODS_customer_dim\DCNV-Name Types"
-          TopLeft="171,138.958332916307" />
+          TopLeft="40.5000000000001,169.249999693284" />
         <NodeLayout
           Size="230,42"
           Id="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim"
-          TopLeft="137.5,36.4999984825655" />
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values"
+          TopLeft="17,80.0416673096932" />
         <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
-          TopLeft="246.25,180.958332916307">
+          Id="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
+          TopLeft="120.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61.6666670756206"
+              EndConnector="0,32.5416673096932"
               Start="0,0"
-              End="0,54.1666670756206">
+              End="0,25.0416673096932">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.1666670756206" />
+                    End="0,25.0416673096932" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -652,19 +766,43 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[OLE DB Source Output]"
-          TopLeft="251,78.4999984825654">
+          Id="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
+          TopLeft="119.75,122.041667309693">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.4583344337424"
+              EndConnector="0,47.2083323835912"
               Start="0,0"
-              End="0,52.9583344337424">
+              End="0,39.7083323835912">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.9583344337424" />
+                    End="0,39.7083323835912" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.842578125,14.0494786917956,81.68515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
+          TopLeft="121,211.249999693284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3333334409528"
+              Start="0,0"
+              End="0,30.8333334409528">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8333334409528" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

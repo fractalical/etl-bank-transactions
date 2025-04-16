@@ -26,25 +26,56 @@ This data warehouse is designed to facilitate business intelligence and analytic
 
 #### Example of uploading data from flat file
 
-![STA](./storage/sta_customer_dim.png)
+![STA](./storage/images/sta_customer_dim.png)
 
 #### Example of cleaning data from STA db and upload to ODS db
 
-![STA](./storage/ods_customer_dim.png)
+![STA](./storage/images/ods_customer_dim.png)
 
 
 ## How to start the project
 
-1. download this project
-2. open group_project_DSTI.sln in VS
-3. create sql server and created DBs and apply queries to create tables
-4. create connections to your sql server in every ODS* file
-5. run the project
+### 1. Clone the project
+```bash
+git clone https://github.com/fractalical/etl-bank-transactions.git
+```
+Or download ZIP archive from repository and extract it to your local machine.
+
+### 2. Open project in Visual Studio 2022
+- Launch Visual Studio 2022
+- Go to File -> Open -> Project/Solution
+- Navigate to the project folder and select `group_project_DSTI.sln`
+- Wait for Visual Studio to load all dependencies
+
+### 3. Configure SQL Server connection
+1. Install SQL Server and SQL Server Management Studio (SSMS) if not already installed
+2. In SSMS:
+   - Connect to your local SQL Server instance
+   - Create new databases: STA, ODS, and DWH
+   - Execute SQL scripts from `database_scripts` folder to create necessary tables
+
+3. Update connection strings in the project:
+   - Open Solution Explorer in Visual Studio
+   - For each ODS*.dtsx file:
+     - Double click to open
+     - Go to Connection Managers at the bottom
+     - Right-click on "MSSQL" connection -> Edit
+     - Update Server name: `localhost` or your SQL Server instance name
+     - Select authentication method and provide credentials
+     - Test the connection and click OK
+
+### 4. Configure Flat File Connections
+1. In Visual Studio, open each SSIS package that uses flat files
+2. In Connection Managers:
+   - Right-click on flat file connection -> Edit
+   - Update the file path to point to: `[Your Project Path]\storage\csv_data`
+   - Verify the file format settings
+   - Click OK to save
 
 
 #### Example of connections
 
-![con](./storage/connections.png)
+![con](./storage/images/connections.png)
 
 ## How to Restore a Database from a Backup (.bak)
 1. Right-click on Databases in SQL Server Management Studio (SSMS)
