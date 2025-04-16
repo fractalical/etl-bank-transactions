@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_load_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{D05565E0-17D7-4342-BB67-060B2E9A0921}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{631E34E0-B63C-4FB8-8A66-F39739F62A85}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,19 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost.group_project_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DWH_load_package-{95317F04-7A2B-45A2-B668-C4DCDA1C46C2}localhost.group_project_DWH;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_DWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-DWH_load_package-{95317F04-7A2B-45A2-B668-C4DCDA1C46C2}localhost.group_project_DWH;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.group_project_ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{03D6452C-E729-4249-9E68-F9F3C33D72B1}"
+      DTS:ObjectName="localhost.group_project_ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_ODS;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DWH_load_package-{03D6452C-E729-4249-9E68-F9F3C33D72B1}localhost.group_project_ODS;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -678,25 +690,25 @@
         <NodeLayout
           Size="154.5,42"
           Id="Package\Data Flow Task\Derived Column"
-          TopLeft="225.5,169.541665824544" />
+          TopLeft="225.5,152.749999241282" />
         <NodeLayout
           Size="173,42"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="218.5,281.666665267613" />
+          TopLeft="218,251.874998748923" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="303.875,211.541665824544">
+          TopLeft="303.625,194.749999241282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.1249994430691"
+              EndConnector="0,57.1249995076407"
               Start="0,0"
-              End="0,62.6249994430691">
+              End="0,49.6249995076407">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.6249994430691" />
+                    End="0,49.6249995076407" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -711,14 +723,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,87.4583326903066"
+              EndConnector="0,70.6666661070451"
               Start="0,0"
-              End="0,79.9583326903066">
+              End="0,63.1666661070451">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,79.9583326903066" />
+                    End="0,63.1666661070451" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
