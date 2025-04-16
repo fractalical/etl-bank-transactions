@@ -41,13 +41,27 @@ git clone https://github.com/fractalical/etl-bank-transactions.git
 ```
 Or download ZIP archive from repository and extract it to your local machine.
 
-### 2. Open project in Visual Studio 2022
+### 2. Create and switch to your feature branch
+```bash
+cd etl-bank-transactions
+git checkout -b feature/your-feature-name
+```
+
+### 3. Save your changes
+After making changes to the project, save them to your branch:
+```bash
+git add .
+git commit -m "Description of your changes"
+git push origin feature/your-feature-name
+```
+
+### 4. Open project in Visual Studio 2022
 - Launch Visual Studio 2022
 - Go to File -> Open -> Project/Solution
 - Navigate to the project folder and select `group_project_DSTI.sln`
 - Wait for Visual Studio to load all dependencies
 
-### 3. Configure SQL Server connection
+### 5. Configure SQL Server connection
 1. Install SQL Server and SQL Server Management Studio (SSMS) if not already installed
 2. In SSMS:
    - Connect to your local SQL Server instance
@@ -64,7 +78,7 @@ Or download ZIP archive from repository and extract it to your local machine.
      - Select authentication method and provide credentials
      - Test the connection and click OK
 
-### 4. Configure Flat File Connections
+### 6. Configure Flat File Connections
 1. In Visual Studio, open each SSIS package that uses flat files
 2. In Connection Managers:
    - Right-click on flat file connection -> Edit
