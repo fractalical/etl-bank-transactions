@@ -103,13 +103,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">LEN(TRIM([time_key])) &gt; 0 &amp;&amp; LEN(TRIM([date])) &gt; 0 &amp;&amp; FINDSTRING([date], " ", 1) &gt; 0</property>
+                      name="Expression">(LEN(TRIM([time_key])) &gt; 0 &amp;&amp; TRIM([time_key]) != "None") &amp;&amp; (LEN(TRIM([date])) &gt; 0 &amp;&amp; TRIM([date]) != "None") &amp;&amp; (FINDSTRING([date], " ", 1) &gt; 0 &amp;&amp; TRIM([date]) != "None")</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression."
                       expressionType="Notify"
-                      name="FriendlyExpression">LEN(TRIM(time_key)) &gt; 0 &amp;&amp; LEN(TRIM(date)) &gt; 0 &amp;&amp; FINDSTRING(date, " ", 1) &gt; 0</property>
+                      name="FriendlyExpression">(LEN(TRIM(time_key)) &gt; 0 &amp;&amp; TRIM(time_key) != "None") &amp;&amp; (LEN(TRIM(date)) &gt; 0 &amp;&amp; TRIM(date) != "None") &amp;&amp; (FINDSTRING(date, " ", 1) &gt; 0 &amp;&amp; TRIM(date) != "None")</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the order in which the conditions will be evaluated."
