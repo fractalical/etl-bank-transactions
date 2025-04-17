@@ -19,7 +19,7 @@
 
     -- Create Customer Dimension Table
     CREATE TABLE ODS_customer_dim (
-        coustomer_key VARCHAR(10) PRIMARY KEY,
+        customer_key VARCHAR(10) PRIMARY KEY,
         first_name VARCHAR(100) NOT NULL,
         last_name VARCHAR(100) NOT NULL,
         contact_no VARCHAR(50) NOT NULL,
@@ -49,20 +49,19 @@
 
     -- Create Fact Table
     CREATE TABLE ODS_fact_table (
-        fact_key INT IDENTITY(1,1) PRIMARY KEY,
-        time_key VARCHAR(10) NOT NULL,
-        store_key VARCHAR(10) NOT NULL,
-        item_key VARCHAR(10) NOT NULL,
-        coustomer_key VARCHAR(10) NOT NULL,
         payment_key VARCHAR(10) NOT NULL,
+        customer_key VARCHAR(10) NOT NULL,
+        time_key VARCHAR(10) NOT NULL,
+        item_key VARCHAR(10) NOT NULL,
+        store_key VARCHAR(10) NOT NULL,
         quantity INT NOT NULL,
-        total_amount DECIMAL(10,2) NOT NULL,
-        discount_amount DECIMAL(10,2) NOT NULL,
-        net_amount DECIMAL(10,2) NOT NULL,
+        unit VARCHAR(50) NOT NULL,
+        unit_price DECIMAL(10,2) NOT NULL,
+        total_price DECIMAL(10,2) NOT NULL,
         FOREIGN KEY (time_key) REFERENCES ODS_time_dim(time_key),
         FOREIGN KEY (store_key) REFERENCES ODS_store_dim(store_key),
         FOREIGN KEY (item_key) REFERENCES ODS_item_dim(item_key),
-        FOREIGN KEY (coustomer_key) REFERENCES ODS_customer_dim(coustomer_key),
+        FOREIGN KEY (customer_key) REFERENCES ODS_customer_dim(customer_key),
         FOREIGN KEY (payment_key) REFERENCES ODS_trans_dim(payment_key)
     );
 

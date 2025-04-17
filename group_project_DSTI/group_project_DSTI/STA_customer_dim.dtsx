@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{9D4C6673-38CB-4DFE-8FBE-D8EBAD11B59E}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{89A94433-F0B7-4720-93CC-39D5E1DAB484}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -30,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1251"
-          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\customer_dim.csv">
+          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\storage\csv_data\customer_dim.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="coustomer_key"
-              DTS:DTSID="{2170AF1B-DCAC-48A2-B811-AAF478662B05}"
+              DTS:DTSID="{F183F673-2FBA-455F-9289-F92F539A249D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="name"
-              DTS:DTSID="{EA2C2400-6B1F-4BAC-AA74-0944133D30E9}"
+              DTS:DTSID="{B5052D56-D348-476D-B952-DCB1CDCE37F9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="contact_no"
-              DTS:DTSID="{1EEB6603-82DD-43DF-95B9-5FA30AC8EA22}"
+              DTS:DTSID="{2774CC7C-D497-4F4A-92D2-87C59069C17E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="nid"
-              DTS:DTSID="{02A8DE03-464C-42E2-972A-A132E2718F7A}"
+              DTS:DTSID="{1BBD32A4-263E-45FA-B12A-3D1C8DCB61BD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -93,7 +93,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WIN-S7VOHSP5VFS;Initial Catalog=group_project_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{FBC9E162-E63A-4E72-8C23-656BF065FA9C}WIN-S7VOHSP5VFS.group_project_ADM;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_ADM;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{FBC9E162-E63A-4E72-8C23-656BF065FA9C}WIN-S7VOHSP5VFS.group_project_ADM;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -411,7 +411,7 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="coustomer_key"
-                      externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      externalMetadataColumnId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       lineageId="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim.Outputs[Flat File Source Output].Columns[coustomer_key]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -435,11 +435,11 @@
                       length="50"
                       name="nid" />
                     <externalMetadataColumn
-                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      refId="Package\DFT-STA_customer_dim\OLE_DST-STA.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       codePage="1251"
                       dataType="str"
                       length="10"
-                      name="coustomer_key" />
+                      name="customer_key" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -551,7 +551,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{FBC9E162-E63A-4E72-8C23-656BF065FA9C}"
-          SQLTask:SqlStatementSource="INSERT INTO dbo.Table_Row_Count_Log (RunID, TableName, RowCount, LoggedAt)&#xA;VALUES (?, 'STA_costomer_dim', ?, GETDATE());&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="INSERT INTO dbo.Table_Row_Count_Log (RunID, TableName, [RowCount], LoggedAt)&#xA;VALUES (?, 'STA_customer_dim', ?, GETDATE());&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::RunID"
@@ -717,6 +717,18 @@
           Id="Package\DFT-STA_customer_dim"
           TopLeft="281.5,190.5" />
         <NodeLayout
+          Size="120,42"
+          Id="Package\Log End"
+          TopLeft="302.5,331.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Log Row Count STA_customer_dim"
+          TopLeft="285.5,264.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Log Start"
+          TopLeft="285.5,32.5" />
+        <NodeLayout
           Size="250,42"
           Id="Package\SQL_Truncate STA_customer_dim"
           TopLeft="257.5,124.5" />
@@ -742,14 +754,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Log Start"
-          TopLeft="285.5,32.5" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\Log End"
-          TopLeft="302.5,331.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="347.5,74.5">
@@ -784,10 +788,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="254,42"
-          Id="Package\Log Row Count STA_customer_dim"
-          TopLeft="285.5,264.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="412.5,306.5">
@@ -859,6 +859,18 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package.EventHandlers[OnError]\Log Error to ADM"
+          TopLeft="190,79" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\DFT-STA_customer_dim">
     <LayoutInfo>
@@ -869,13 +881,35 @@
           Id="Package\DFT-STA_customer_dim\OLE_DST-STA"
           TopLeft="231.5,231.499999806285" />
         <NodeLayout
-          Size="214,42"
-          Id="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim"
-          TopLeft="215.5,54.0416666639762" />
-        <NodeLayout
           Size="133,42"
           Id="Package\DFT-STA_customer_dim\Row Count"
           TopLeft="246.5,135.5" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\DFT-STA_customer_dim\FF_SRC STA_customer_dim"
+          TopLeft="215.5,54.0416666639762" />
+        <EdgeLayout
+          Id="Package\DFT-STA_customer_dim.Paths[Row Count Output 1]"
+          TopLeft="309.75,177.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.999999806285"
+              Start="0,0"
+              End="0,46.499999806285">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.499999806285" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-STA_customer_dim.Paths[Flat File Source Output]"
           TopLeft="322.5,96.0416666639762">
@@ -910,28 +944,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-STA_customer_dim.Paths[Row Count Output 1]"
-          TopLeft="309.75,177.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.999999806285"
-              Start="0,0"
-              End="0,46.499999806285">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.499999806285" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -948,17 +960,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package.EventHandlers[OnError]\Log Error to ADM"
-          TopLeft="190,79" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

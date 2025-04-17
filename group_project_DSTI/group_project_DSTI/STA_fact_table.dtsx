@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B7F4575A-A30E-4F8A-B0A1-3CC0FB788441}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{C2C9143A-70A7-4A6C-9CBE-F26C4344624D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -30,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1251"
-          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\fact_table.csv">
+          DTS:ConnectionString="C:\Users\user\Documents\моё\DSTI\ETL\storage\csv_data\fact_table.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="payment_key"
-              DTS:DTSID="{0A2A3D32-D451-41E8-83AF-C57D9DC8275A}"
+              DTS:DTSID="{82284578-689F-4C57-8D92-46692AD76E5D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="coustomer_key"
-              DTS:DTSID="{D534AA91-8F40-4DE2-8E2E-8BA234CBEE9C}"
+              DTS:DTSID="{51494156-E476-4E54-B88A-B26F4985EA77}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="time_key"
-              DTS:DTSID="{3BF6C898-2CFC-4DF8-8475-CD0630963CA3}"
+              DTS:DTSID="{9E6ECC35-255C-43EB-B0C4-82225D54F1C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="item_key"
-              DTS:DTSID="{E5C294B0-4D77-4600-8AEF-D0B4EB75DF4F}"
+              DTS:DTSID="{3BBC6639-F9E9-4490-8CAD-224097386549}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="store_key"
-              DTS:DTSID="{9B1A5C98-A8F2-4AFE-89D5-18631842A194}"
+              DTS:DTSID="{A0146F87-CE88-40C8-BF13-125BFDA0E84D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="quantity"
-              DTS:DTSID="{CDDEEB9B-5AC2-41F1-BADE-C9F024A2EEFD}"
+              DTS:DTSID="{C3606981-C909-442C-9187-BABC6CE86E46}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit"
-              DTS:DTSID="{A57A1248-9049-48F9-A428-75E3C7D10B73}"
+              DTS:DTSID="{F5BE5074-AF6B-449B-B366-1293DE24F550}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="unit_price"
-              DTS:DTSID="{037B0547-0854-45C8-96B8-682478A51D53}"
+              DTS:DTSID="{7CDF96EA-AC98-4251-BD1E-893524596635}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="total_price"
-              DTS:DTSID="{FCF0AF13-8032-4C36-8A89-ABB9061E5E17}"
+              DTS:DTSID="{0FCCA587-7D28-4648-8549-E71DDCB55352}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -544,14 +544,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[payment_key]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="coustomer_key"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[coustomer_key]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[time_key]"
                       cachedCodepage="1251"
                       cachedDataType="str"
@@ -607,6 +599,14 @@
                       cachedName="total_price"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_price]"
                       lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[total_price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="coustomer_key"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[coustomer_key]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -628,12 +628,6 @@
                       dataType="str"
                       length="50"
                       name="item_key" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      codePage="1251"
-                      dataType="str"
-                      length="50"
-                      name="coustomer_key" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[payment_key]"
                       codePage="1251"
@@ -664,6 +658,12 @@
                       dataType="str"
                       length="50"
                       name="total_price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      codePage="1251"
+                      dataType="str"
+                      length="50"
+                      name="customer_key" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -744,13 +744,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166.5,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="289,67.7083329970224" />
-        <NodeLayout
           Size="151.5,42"
           Id="Package\Data Flow Task"
           TopLeft="293,162.499999192854" />
+        <NodeLayout
+          Size="166.5,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="289,67.7083329970224" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="370.5,109.708332997022">
@@ -782,16 +782,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152.5,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="249.5,166.291665840687" />
-        <NodeLayout
           Size="173,42"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="236.5,271.916665316042" />
+          TopLeft="234,200.958332335163" />
+        <NodeLayout
+          Size="152.5,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="247,95.3333328598075" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="324.375,208.291665840687">
+          TopLeft="321.875,137.333332859808">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

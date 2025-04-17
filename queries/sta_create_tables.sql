@@ -19,7 +19,7 @@ CREATE TABLE STA_item_dim (
 
 -- Create Customer Dimension Table
 CREATE TABLE STA_customer_dim (
-    coustomer_key VARCHAR(10) PRIMARY KEY,
+    customer_key VARCHAR(10) PRIMARY KEY,
     name VARCHAR(100),
     contact_no VARCHAR(50),
     nid VARCHAR(50)
@@ -43,3 +43,17 @@ CREATE TABLE STA_time_dim (
     quarter VARCHAR(10),
     year INT
 );
+
+-- Create Fact Table
+CREATE TABLE STA_fact_table (
+    payment_key VARCHAR(50) NOT NULL,
+    customer_key VARCHAR(50) NOT NULL,
+    time_key VARCHAR(50) NOT NULL,
+    item_key VARCHAR(50) NOT NULL,
+    store_key VARCHAR(50) NOT NULL,
+    quantity VARCHAR(50) NOT NULL,
+    unit VARCHAR(50) NOT NULL,
+    unit_price VARCHAR(50) NOT NULL,
+    total_price VARCHAR(50) NOT NULL,
+);
+

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ODS_customer_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{FB2F8B4F-DA07-403D-A579-C1C94A71569F}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{6AA9A7CA-25E6-4190-AACF-43310BEB1C8D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -632,13 +632,13 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[coustomer_key]"
+                      refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[customer_key]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="coustomer_key"
-                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
-                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[coustomer_key]" />
+                      cachedName="customer_key"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]" />
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[contact_no]"
                       cachedCodepage="1251"
@@ -687,11 +687,11 @@
                       length="50"
                       name="nid" />
                     <externalMetadataColumn
-                      refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[coustomer_key]"
+                      refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       codePage="1251"
                       dataType="str"
                       length="10"
-                      name="coustomer_key" />
+                      name="customer_key" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1251"
@@ -827,15 +827,15 @@
                       name="nid"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[coustomer_key]"
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]"
                       codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[coustomer_key]"
+                      externalMetadataColumnId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[customer_key]"
                       length="10"
-                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[coustomer_key]"
-                      name="coustomer_key"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]"
+                      name="customer_key"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -859,11 +859,11 @@
                       length="50"
                       name="nid" />
                     <externalMetadataColumn
-                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[coustomer_key]"
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[customer_key]"
                       codePage="1251"
                       dataType="str"
                       length="10"
-                      name="coustomer_key" />
+                      name="customer_key" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -872,12 +872,12 @@
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[coustomer_key]"
+                      refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[customer_key]"
                       codePage="1251"
                       dataType="str"
                       length="10"
-                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[coustomer_key]"
-                      name="coustomer_key" />
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[customer_key]"
+                      name="customer_key" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[name]"
                       codePage="1251"
@@ -1139,6 +1139,42 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
+          TopLeft="415.75,48.7500005004307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.25,36.7083334490243"
+              Start="0,0"
+              End="-13.25,29.2083334490243">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3541667245122" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3541667245122"
+                    Point2="0,18.3541667245122"
+                    Point3="-4,18.3541667245122" />
+                  <mssgle:LineSegment
+                    End="-9.25,18.3541667245122" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.25,18.3541667245122"
+                    Point2="-13.25,18.3541667245122"
+                    Point3="-13.25,22.3541667245122" />
+                  <mssgle:LineSegment
+                    End="-13.25,29.2083334490243" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.467578125,23.3541667245122,81.68515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
           TopLeft="180.75,188.625000847503">
           <EdgeLayout.Curve>
@@ -1192,42 +1228,6 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
-          TopLeft="415.75,48.7500005004307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13.25,36.7083334490243"
-              Start="0,0"
-              End="-13.25,29.2083334490243">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.3541667245122" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.3541667245122"
-                    Point2="0,18.3541667245122"
-                    Point3="-4,18.3541667245122" />
-                  <mssgle:LineSegment
-                    End="-9.25,18.3541667245122" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.25,18.3541667245122"
-                    Point2="-13.25,18.3541667245122"
-                    Point3="-13.25,22.3541667245122" />
-                  <mssgle:LineSegment
-                    End="-13.25,29.2083334490243" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-47.467578125,23.3541667245122,81.68515625,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
