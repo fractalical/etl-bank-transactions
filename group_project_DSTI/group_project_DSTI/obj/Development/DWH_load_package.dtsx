@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DWH_load_package"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{14795536-C98B-46A8-A422-CD49D08B79D7}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{E727120D-E67B-438C-86AA-2388C6042755}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2090,7 +2090,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{95317F04-7A2B-45A2-B668-C4DCDA1C46C2}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.DWH_fact_table;&#xA;DELETE FROM dbo.DWH_customer_dim;&#xA;DELETE FROM dbo.DWH_time_dim;&#xA;DELETE FROM dbo.DWH_item_dim;&#xA;DELETE FROM dbo.DWH_store_dim;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.DWH_fact_table;&#xA;DELETE FROM dbo.DWH_customer_dim;&#xA;DELETE FROM dbo.DWH_time_dim;&#xA;DELETE FROM dbo.DWH_item_dim;&#xA;DELETE FROM dbo.DWH_store_dim;&#xA;DELETE FROM dbo.DWH_trans_dim;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2156,45 +2156,47 @@
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="153.5,42"
+          Id="Package\Data Flow Task\OLE DB Source 3"
+          TopLeft="29.5,256.124998765065" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination 1"
+          TopLeft="223,152.958332206019" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination 2"
+          TopLeft="433,154.124998765065" />
+        <NodeLayout
+          Size="153.5,42"
           Id="Package\Data Flow Task\OLE DB Source"
           TopLeft="29.5,58.624999895071" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="21.5,151.791666098974" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="107.125,100.624999895071">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.1666662039024"
-              Start="0,0"
-              End="0,43.6666662039024">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.6666662039024" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="153.5,42"
+          Id="Package\Data Flow Task\OLE DB Source 4"
+          TopLeft="232,256.583332133375" />
+        <NodeLayout
+          Size="153.5,42"
+          Id="Package\Data Flow Task\OLE DB Source 2"
+          TopLeft="441,60.9583325611628" />
         <NodeLayout
           Size="162,42"
           Id="Package\Data Flow Task\OLE DB Source 1"
           TopLeft="231,59.791666002116" />
         <NodeLayout
           Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination 1"
-          TopLeft="223,152.958332206019" />
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="21.5,151.791666098974" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination 4"
+          TopLeft="224,349.749998337277" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination 3"
+          TopLeft="21.5,349.291664968968" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="310.75,101.791666002116">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output3]"
+          TopLeft="107.125,298.124998765065">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2214,14 +2216,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.5,42"
-          Id="Package\Data Flow Task\OLE DB Source 2"
-          TopLeft="441,60.9583325611628" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination 2"
-          TopLeft="433,154.124998765065" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output2]"
           TopLeft="518.625,102.958332561163">
@@ -2244,25 +2238,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.5,42"
-          Id="Package\Data Flow Task\OLE DB Source 3"
-          TopLeft="29.5,256.124998765065" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination 3"
-          TopLeft="21.5,349.291664968968" />
-        <NodeLayout
-          Size="153.5,42"
-          Id="Package\Data Flow Task\OLE DB Source 4"
-          TopLeft="232,256.583332133375" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Data Flow Task\OLE DB Destination 4"
-          TopLeft="224,349.749998337277" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output3]"
-          TopLeft="107.125,298.124998765065">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="310.75,101.791666002116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2274,6 +2252,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.6666662039025" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="107.125,100.624999895071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1666662039024"
+              Start="0,0"
+              End="0,43.6666662039024">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6666662039024" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2308,33 +2308,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source 1">
+    design-time-name="Package\Data Flow Task\OLE DB Source 3">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2360,19 +2334,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source 2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Destination 2">
     <Properties>
       <Property>
@@ -2386,20 +2347,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source 3">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination 3">
+    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2425,7 +2373,59 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Destination 4">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination 3">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

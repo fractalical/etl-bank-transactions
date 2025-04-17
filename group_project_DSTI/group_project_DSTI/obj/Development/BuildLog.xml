@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>group_project_DSTI</Name>
-    <LastWriteTime>2025-04-17T12:23:59.2028166Z</LastWriteTime>
+    <LastWriteTime>2025-04-17T12:43:35.281752Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -58,7 +58,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_load_package.dtsx</Name>
-      <LastWriteTime>2025-04-17T12:26:31.4631827Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T12:39:03.057119Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -69,6 +69,11 @@
     <ProjectBuildItemInfo>
       <Name>ODS_fact_table.dtsx</Name>
       <LastWriteTime>2025-04-17T12:14:02.7581896Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package1.dtsx</Name>
+      <LastWriteTime>2025-04-17T12:43:35.2661143Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
