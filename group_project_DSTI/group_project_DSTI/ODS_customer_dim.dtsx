@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="4/9/2025 4:15:37 AM"
@@ -115,21 +115,21 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[name]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="name"
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]" />
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[contact_no]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="contact_no"
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]" />
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Inputs[Conditional Split Input].Columns[nid]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="nid"
@@ -220,7 +220,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input].Columns[name]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="name"
@@ -417,7 +417,7 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input].Columns[name]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="name"
@@ -619,7 +619,7 @@
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
+                  name="DefaultCodePage">1251</property>
                 <property
                   dataType="System.Boolean"
                   description="Forces the use of the DefaultCodePage property value when describing character data."
@@ -672,7 +672,7 @@
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[customer_key]" />
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[contact_no]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="contact_no"
@@ -680,7 +680,7 @@
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]" />
                     <inputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim.Inputs[OLE DB Destination Input].Columns[nid]"
-                      cachedCodepage="1252"
+                      cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="nid"
@@ -796,7 +796,7 @@
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
+                  name="DefaultCodePage">1251</property>
                 <property
                   dataType="System.Boolean"
                   description="Forces the use of the DefaultCodePage property value when describing character data."
@@ -826,7 +826,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -837,7 +837,7 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[contact_no]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -848,7 +848,7 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[nid]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
@@ -873,19 +873,19 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="100"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[contact_no]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="contact_no" />
                     <externalMetadataColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].ExternalColumns[nid]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       name="nid" />
@@ -911,21 +911,21 @@
                       name="customer_key" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[name]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="100"
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[name]"
                       name="name" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[contact_no]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[contact_no]"
                       name="contact_no" />
                     <outputColumn
                       refId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[nid]"
-                      codePage="1252"
+                      codePage="1251"
                       dataType="str"
                       length="50"
                       lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Error Output].Columns[nid]"
