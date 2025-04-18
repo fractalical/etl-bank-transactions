@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>group_project_DSTI</Name>
-    <LastWriteTime>2025-04-17T12:43:35.281752Z</LastWriteTime>
+    <LastWriteTime>2025-04-18T11:23:11.9216667Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STA_customer_dim.dtsx</Name>
-      <LastWriteTime>2025-04-17T06:53:55.9818972Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T13:57:22.2473995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STA_item_dim.dtsx</Name>
-      <LastWriteTime>2025-04-17T07:42:58.6712471Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T13:57:22.2473995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -28,17 +28,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_time_dim.dtsx</Name>
-      <LastWriteTime>2025-04-16T11:45:59.5206391Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T18:47:36.9496321Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_customer_dim.dtsx</Name>
-      <LastWriteTime>2025-04-17T07:01:35.9954384Z</LastWriteTime>
+      <LastWriteTime>2025-04-18T11:29:01.5298517Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_item_dim.dtsx</Name>
-      <LastWriteTime>2025-04-16T11:45:59.5022187Z</LastWriteTime>
+      <LastWriteTime>2025-04-18T10:42:54.8382032Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -48,32 +48,32 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_store_dim.dtsx</Name>
-      <LastWriteTime>2025-04-16T11:45:59.5119226Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T13:57:22.2473995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_trans_dim.dtsx</Name>
-      <LastWriteTime>2025-04-16T11:45:59.5301794Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T13:57:22.2473995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DWH_load_package.dtsx</Name>
-      <LastWriteTime>2025-04-17T12:39:03.057119Z</LastWriteTime>
+      <LastWriteTime>2025-04-18T11:00:48.2733615Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STA_fact_table.dtsx</Name>
-      <LastWriteTime>2025-04-17T08:24:45.1153034Z</LastWriteTime>
+      <LastWriteTime>2025-04-17T13:57:22.2473995Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_fact_table.dtsx</Name>
-      <LastWriteTime>2025-04-17T12:14:02.7581896Z</LastWriteTime>
+      <LastWriteTime>2025-04-18T10:43:57.7462071Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Package1.dtsx</Name>
-      <LastWriteTime>2025-04-17T12:43:35.2661143Z</LastWriteTime>
+      <Name>DWH_load_fact_table.dtsx</Name>
+      <LastWriteTime>2025-04-17T13:57:22.2456183Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

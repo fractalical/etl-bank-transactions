@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ODS_customer_dim"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{6AA9A7CA-25E6-4190-AACF-43310BEB1C8D}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{867B034A-3888-402F-BFEE-36990DF638C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -61,7 +61,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=WIN-S7VOHSP5VFS;Initial Catalog=group_project_ADM;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-ODS_customer_dim-{60519B3D-86FF-46BD-B974-8ECE799F37C2}WIN-S7VOHSP5VFS.group_project_ADM;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=group_project_ADM;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ODS_customer_dim-{60519B3D-86FF-46BD-B974-8ECE799F37C2}WIN-S7VOHSP5VFS.group_project_ADM;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -206,51 +206,49 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters"
+              refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, direct rows with 'old' database dates to a different output than rows with 'new' dates."
-              name="CSPL-Check Special Characters"
+              name="CSPL-Check Empty Values 1"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input]"
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input].Columns[name]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="name"
-                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]" />
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input].Columns[isValid]"
+                      cachedDataType="bool"
+                      cachedName="isValid"
+                      lineageId="Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0].Columns[isValid]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Valid Characters]"
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Valid values]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Valid Characters"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input]"
+                  name="Valid values"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"!",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"#",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"$",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"%",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"^",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"&amp;",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"*",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"(",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},")",1) == 0 &amp;&amp; [FINDSTRING](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"/",1) == 0</property>
+                      name="Expression">#{Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0].Columns[isValid]} ==  TRUE </property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names instead of lineage identifiers."
                       expressionType="Notify"
-                      name="FriendlyExpression">FINDSTRING(name,"!",1) == 0 &amp;&amp; FINDSTRING(name,"#",1) == 0 &amp;&amp; FINDSTRING(name,"$",1) == 0 &amp;&amp; FINDSTRING(name,"%",1) == 0 &amp;&amp; FINDSTRING(name,"^",1) == 0 &amp;&amp; FINDSTRING(name,"&amp;",1) == 0 &amp;&amp; FINDSTRING(name,"*",1) == 0 &amp;&amp; FINDSTRING(name,"(",1) == 0 &amp;&amp; FINDSTRING(name,")",1) == 0 &amp;&amp; FINDSTRING(name,"/",1) == 0</property>
+                      name="FriendlyExpression">isValid ==  TRUE </property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions when the transformation runs. The evaluation order is from the lowest to the highest value."
@@ -259,11 +257,11 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Invalid Characters]"
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Invalid Values]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
-                  name="Invalid Characters"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input]">
+                  name="Invalid Values"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -272,23 +270,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Conditional Split Error Output]"
+                  refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -448,13 +446,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">REPLACE([name], "@", "")</property>
+                          name="Expression">[REPLACE](#{Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]},"@","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(name, "@", "")</property>
+                          name="FriendlyExpression">REPLACE(clean_name,"@","")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -976,6 +974,950 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\DFT-ODS_customer_dim\Script Component"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;13"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script Component"
+              version="13">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        if (!Row.cleanname_IsNull)
+        {
+            string[] invalidWords = new string[] {
+            "child",
+            "son",
+            "daughter",
+            "jr",
+            "sr",
+            "junior",
+            "senior"
+        };
+
+            // Проверяем два условия:
+            // 1. Строка содержит только латинские буквы
+            // 2. Строка НЕ содержит запрещенные слова (независимо от регистра)
+            Row.isValid = Regex.IsMatch(Row.cleanname, @"^[a-zA-Z@\s]+$") &&
+                          !invalidWords.Any(word => Row.cleanname.ToLower().Contains(word.ToLower()));
+        }
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String cleanname
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+        set
+        {
+            this[0] = value;
+        }
+    }
+    public bool cleanname_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+        set
+        {
+            if (value)
+            {
+                SetNull(0);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public Boolean isValid
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool isValid_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_e34da3a4f9b5472398436bbd0802a34e.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{871D242B-4EB6-4E1B-8830-62AA174FE75D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_e34da3a4f9b5472398436bbd0802a34e</RootNamespace>
+    <AssemblyName>SC_e34da3a4f9b5472398436bbd0802a34e</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Settings.get_Default():SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Sett" +
+    "ings")]
+
+namespace SC_e34da3a4f9b5472398436bbd0802a34e.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>SC_e34da3a4f9b5472398436bbd0802a34e</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>SC_e34da3a4f9b5472398436bbd0802a34e</msb:DisplayName>
+    <msb:ProjectId>{2FAF3299-ED1E-4D70-811A-3D36476E0615}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="SC_e34da3a4f9b5472398436bbd0802a34e.csproj" />
+    <msb:File Include="main.cs" />
+    <msb:File Include="BufferWrapper.cs" />
+    <msb:File Include="ComponentWrapper.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_e34da3a4f9b5472398436bbd0802a34e")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_e34da3a4f9b5472398436bbd0802a34e")]
+[assembly: AssemblyCopyright("Copyright @  2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.0.0")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_e34da3a4f9b5472398436bbd0802a34e.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_e34da3a4f9b5472398436bbd0802a34e.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_e34da3a4f9b5472398436bbd0802a34e.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAE03AmgAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAA3jQA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIw0AABPAAAAAEAAAEgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA5BQAAAAgAAAAFgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAEgEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADA
+NAAAAAAAAEgAAAACAAUAfCIAAFgRAAABAAAAAAAAANQzAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBAAAAoqHgIoEQAACioTMAQAlAAAAAEAABFzGwAABgoG
+A30IAAAEBnsIAAAEbwgAAAYteR2NGgAAASUWcgEAAHCiJRdyDQAAcKIlGHIVAABwoiUZcicAAHCi
+JRpyLQAAcKIlG3IzAABwoiUcckEAAHCiCwZ7CAAABAZ7CAAABG8GAAAGck8AAHAoEgAACiwXBwb+
+BhwAAAZzEwAACigBAAArFv4BKwEWbwoAAAYqHgIoDgAABioqAgMEBSgVAAAKKlICexYAAAoCexcA
+AAoWlG8YAAAKKiYCFgMoGQAACioiAhYoGgAACipaAywIAhYoGwAACipybQAAcHMcAAAKejoCFwOM
+IAAAASgZAAAKKloDLAgCFygbAAAKKnJtAABwcxwAAAp6HgIoHQAACioeAigeAAAKKn4CKB8AAAoC
+AnMSAAAGfQEAAAQCAnMTAAAGfQIAAAQqkgRyCgEAcBpvIAAACiwVAgUCAyghAAAKDgRzBQAABm8Q
+AAAGKkorBwIDbxEAAAYDbwwAAAYt8SoGKjoCKCIAAAoCA30DAAAEKjoCKCIAAAoCA30EAAAEKh4C
+KCIAAAoqrn4FAAAELR5yGgEAcNAHAAACKCMAAApvJAAACnMlAAAKgAUAAAR+BQAABCoafgYAAAQq
+HgKABgAABCoafgcAAAQqHgIoJgAACioucxkAAAaABwAABCpyAnsIAAAEbwYAAAZvJwAACgNvJwAA
+Cm8oAAAKKgBCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAABABgAAI34AAKwGAAAw
+BwAAI1N0cmluZ3MAAAAA3A0AAIwBAAAjVVMAaA8AABAAAAAjR1VJRAAAAHgPAADgAQAAI0Jsb2IA
+AAAAAAAAAgAAAVcVogkJCwAAAPoBMwAWAAABAAAAJAAAAAkAAAAIAAAAHAAAABIAAAAoAAAAEQAA
+AAEAAAADAAAABwAAAAoAAAABAAAAAQAAAAUAAAABAAAAAQAAAAEAAAAAAJsDAQAAAAAABgCKAjMF
+BgAeAzMFBgDWASAFDwCnBQAABgADAmEEBgBtAmEEBgBOAmEEBgAFA2EEBgCqAmEEBgDDAmEEBgAa
+AmEEBgA1AlkDCgDeAhcBBgCeATMFBgBYBhEECgDqBBcBDgDbBBcBCgCqBBcBCgCVBhcBBgC5ASAF
+BgD7BFMFBgCeBEwEEgCJAYUDEgDqAYUDEgBxATcEBgB2AxEEEgAWBy0GBgBBABEEFgDCAMIEBgAz
+AGIABgBzBBEEBgAkBBEEBgCNBBEEBgA4AREEBgDNABEEBgAgB2EEAAAAAEgAAAAAAAEAAQABABAA
+LAQAABAAAQABAAEAEADOBAAAQQABAAUAAQAQAHcGAABNAAEADgABABAATAYAAD0AAwASAAEAEADl
+BQAAPQAEABMAAAAQAFoFtgU9AAUAFAAAARAAFAa2BWUABwAYAAMBEAABAAAAPQAIABsABgBMBrEA
+BgDlBbUAAQCFBrkAAQCFBrkAEQAYBL0AEQBhAcEAEQCyAMUABgASB8kAUCAAAAAAxgA8AwYAAQBY
+IAAAAADGAEcDBgABAGAgAAAAAMYA9wbNAAEAACEAAAAAhhgTBQYAAgAIIQAAAACGGBMFSwACABMh
+AAAAAIYI+wCWAAUAKCEAAAAAhggJARAABQAyIQAAAACGCNYDbQAGADshAAAAAIYI6wPTAAYAUiEA
+AAAAhgh9ANMABwBhIQAAAACGCMMD0wAIAHghAAAAAIYADgdtAAkAgCEAAAAAhgBfBm0ACQCIIQAA
+AACGGBMFBgAJAKghAAAAAMYA6gbYAAkAzSEAAAAAxgHjBs0ADQDgIQAAAADGAfcGzQAOAOIhAAAA
+AIYYEwXiAA8A8SEAAAAAhhgTBeIAEAAAIgAAAACDGBMFBgARAAgiAAAAAJMI9wToABEANCIAAAAA
+kwhJAe0AEQA7IgAAAACTCFUB8gARAEMiAAAAAJYIawb4ABIASiIAAAAAhhgTBQYAEgBSIgAAAACR
+GBkF/QASAAAiAAAAAIYYEwUGABIAXiIAAAAAgwAWAJoAEgAAAAEAEgcAAAEA8AQAAAIA7wUAAAMA
+uAQAAAEAUwMAAAEAUwMAAAEAUwMAAAEAUwMAAAEAUQAAAAIA8QAAAAMA8AQAAAQAuAQAAAEA8AQA
+AAEAEgcAAAEAmwYAAAEAmwYAAAEAUwMAAAEAiQAJABMFAQARABMFBgAZABMFCgApABMFEAAxABMF
+EAA5ABMFEABBABMFEABJABMFEABRABMFEABZABMFEABhABMFEABpABMFBgBxABMFBgChABMFBgDB
+ABMFFQCZADwDBgCZAEcDBgDZAH0DIgAMABMFLwDpACkHNQCBABMFSwCBAPAEVQCBAO8FWQCJAHMD
+XQCBAAgEYgCBAPkDaACBAAAEAQD5ABMFEACBAA4HbQCBAF8GbQCZABMFBgDRAB0GcQCZAAMGeQB5
+ABMFBgARAd8AfwARARwHiACpABMFjgDJABMFBgDRAAsFlgDRACQGmgAuAAsAGAEuABMAIQEuABsA
+QAEuACMASQEuACsAcgEuADMAcgEuADsAcgEuAEMASQEuAEsAeAEuAFMAcgEuAFsAjwFDAGMA2QGp
+AHsAQAHJAHsAQAHhAGsA2QHjAHMA2QEjAWsA2QEbAAMAAQAHAAUACAAHAAAADQEBAQAA7wMFAQAA
+gQAFAQAAxwMFAQAA+wQJAQAAaQEOAQAAbwYTAQIABgADAAEABwADAAIACAAFAAEACQAFAAEACgAH
+AAEACwAJAAIAFQALAAIAFgANAAEAFwANAAIAGAAPACgABIAAAAEAAAAAAAAAAAAAAAAAjgAAAAQA
+AAAAAAAAAAAAAJ8AWQAAAAAAEAAAAAAAAAAAAAAAqAClBgAAAAAQAAAAAAAAAAAAAACoAMIGAAAA
+AAQAAAAAAAAAAAAAAJ8AEQQAAAAABAAAAAAAAAAAAAAAnwA9AQAAAAAAAAAAAQAAAGQFAAAJAAIA
+KQBHAAAAADw+Y19fRGlzcGxheUNsYXNzMl8wADxJbnB1dDBfUHJvY2Vzc0lucHV0Um93PmJfXzAA
+SUVudW1lcmFibGVgMQBGdW5jYDIAPE1vZHVsZT4ASW5wdXRJRABtc2NvcmxpYgBTeXN0ZW0uQ29s
+bGVjdGlvbnMuR2VuZXJpYwBzZXRfaXNWYWxpZAB3b3JkAFNDX2UzNGRhM2E0ZjliNTQ3MjM5ODQz
+NmJiZDA4MDJhMzRlAGRlZmF1bHRJbnN0YW5jZQBFbnVtZXJhYmxlAFJ1bnRpbWVUeXBlSGFuZGxl
+AEdldFR5cGVGcm9tSGFuZGxlAElucHV0TmFtZQBnZXRfY2xlYW5uYW1lAHNldF9jbGVhbm5hbWUA
+TWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAVHlwZQBTeXN0ZW0uQ29yZQBnZXRfQ3Vs
+dHVyZQBzZXRfQ3VsdHVyZQByZXNvdXJjZUN1bHR1cmUAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UA
+RWRpdG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJO
+b25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0
+dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRl
+AFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUA
+QXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmli
+dXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBT
+U0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRy
+aWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUHJlRXhlY3V0ZQBQb3N0RXhlY3V0
+ZQB2YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAEdldFN0cmluZwBJc01hdGNoAFN5c3Rl
+bS5Db21wb25lbnRNb2RlbABTQ19lMzRkYTNhNGY5YjU0NzIzOTg0MzZiYmQwODAyYTM0ZS5kbGwA
+c2V0X2lzVmFsaWRfSXNOdWxsAGdldF9jbGVhbm5hbWVfSXNOdWxsAHNldF9jbGVhbm5hbWVfSXNO
+dWxsAFNldE51bGwAc2V0X0l0ZW0AU3lzdGVtAHJlc291cmNlTWFuAEJvb2xlYW4AU2NyaXB0TWFp
+bgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVmbGVj
+dGlvbgBJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN0cmluZ0NvbXBhcmlzb24AQ3VsdHVyZUlu
+Zm8AT3V0cHV0TmFtZU1hcABPdXRwdXRNYXAAU3lzdGVtLkxpbnEASW5wdXQwQnVmZmVyAFBpcGVs
+aW5lQnVmZmVyAFNjcmlwdEJ1ZmZlcgBnZXRfUmVzb3VyY2VNYW5hZ2VyAFRvTG93ZXIALmN0b3IA
+LmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2Vz
+AFN5c3RlbS5SZXNvdXJjZXMAU0NfZTM0ZGEzYTRmOWI1NDcyMzk4NDM2YmJkMDgwMmEzNGUuUHJv
+cGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNDX2UzNGRhM2E0Zjli
+NTQ3MjM5ODQzNmJiZDA4MDJhMzRlLlByb3BlcnRpZXMAVmFyaWFibGVzAEJ1ZmZlckNvbHVtbklu
+ZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBTZXR0aW5ncwBFcXVhbHMAQ29udGFpbnMAU3lzdGVtLlRl
+eHQuUmVndWxhckV4cHJlc3Npb25zAENvbm5lY3Rpb25zAE9iamVjdABFbmRPZlJvd3NldABnZXRf
+RGVmYXVsdABVc2VyQ29tcG9uZW50AFBhcmVudENvbXBvbmVudABTY3JpcHRDb21wb25lbnQATWlj
+cm9zb2Z0LlNxbFNlcnZlci5UeFNjcmlwdABNaWNyb3NvZnQuU3FsU2VydmVyLlBpcGVsaW5lSG9z
+dABJbnB1dDBfUHJvY2Vzc0lucHV0AElucHV0MF9Qcm9jZXNzSW5wdXRSb3cATmV4dFJvdwBSZWdl
+eABnZXRfQXNzZW1ibHkAQW55AAAAAAALYwBoAGkAbABkAAAHcwBvAG4AABFkAGEAdQBnAGgAdABl
+AHIAAAVqAHIAAAVzAHIAAA1qAHUAbgBpAG8AcgAADXMAZQBuAGkAbwByAAAdXgBbAGEALQB6AEEA
+LQBaAEAAXABzAF0AKwAkAAGAm0kAcwBOAHUAbABsACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4A
+bgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYAYQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABh
+ACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABjAG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQA
+LgAAD0kAbgBwAHUAdAAgADAAAHFTAEMAXwBlADMANABkAGEAMwBhADQAZgA5AGIANQA0ADcAMgAz
+ADkAOAA0ADMANgBiAGIAZAAwADgAMAAyAGEAMwA0AGUALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4A
+UgBlAHMAbwB1AHIAYwBlAHMAAGU7FZiuWnxMmah7JEdP+2QABCABAQgDIAABBSABARERBCABAQ4F
+IAEBEV0GBwISJB0OBQACAg4OBhUScQIOAgUgAgEcGBEQAQICFRJ5AR4AFRJxAh4AAgMKAQ4JIAMB
+EkUdCBJJAwYSRQMGHQgEIAEOCAUgAgEIHAQgAQIIAyAAAgcgAgIOEYCFBSABHQgICAABEoCJEYCN
+BSAAEoCRByACAQ4SgJEDIAAOBCABAg4It3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGEk0DBhJV
+AwYSWQMGEiADBhIMBSABARIMBCABAQIJIAQBCA4SRRJJBSABARJNBAAAElUEAAASWQUAAQESWQQA
+ABIgAwAAAQMoAA4DKAACBAgAElUECAASWQQIABIgCAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhj
+ZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTQ19lMzRkYTNhNGY5YjU0NzIzOTg0MzZiYmQwODAy
+YTM0ZQAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDI1AABJAQAaLk5FVEZyYW1ld29yayxWZXJz
+aW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3b3JrIDQuNwQBAAAA
+AAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VSZWFkZXIsIG1zY29y
+bGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
+YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJjZVNldAIAAAAAAAAA
+AAAAAFBBRFBBRFC0AAAAtDQAAAAAAAAAAAAAzjQAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMA0
+AAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABI
+AAAAWEAAAOwDAAAAAAAAAAAAAOwDNAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAA
+AAC9BO/+AAABAAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAA
+AAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4A
+AAAAAAAAsARMAwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAAAoAwAAAQAwADAAMAAw
+ADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4A
+eQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAA
+AFMAQwBfAGUAMwA0AGQAYQAzAGEANABmADkAYgA1ADQANwAyADMAOQA4ADQAMwA2AGIAYgBkADAA
+OAAwADIAYQAzADQAZQAAADAACAABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgAw
+AC4AMAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAAUwBDAF8AZQAzADQAZABhADMA
+YQA0AGYAOQBiADUANAA3ADIAMwA5ADgANAAzADYAYgBiAGQAMAA4ADAAMgBhADMANABlAC4AZABs
+AGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQAAABDAG8AcAB5AHIAaQBnAGgA
+dAAgAEAAIAAgADIAMAAyADUAAAAqAAEAAQBMAGUAZwBhAGwAVAByAGEAZABlAG0AYQByAGsAcwAA
+AAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4AYQBtAGUAAABTAEMAXwBlADMA
+NABkAGEAMwBhADQAZgA5AGIANQA0ADcAMgAzADkAOAA0ADMANgBiAGIAZAAwADgAMAAyAGEAMwA0
+AGUALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0AZQAAAAAAUwBDAF8AZQAzADQA
+ZABhADMAYQA0AGYAOQBiADUANAA3ADIAMwA5ADgANAAzADYAYgBiAGQAMAA4ADAAMgBhADMANABl
+AAAANAAIAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAAMQAuADAALgAwAC4AMAAAADgA
+CAABAEEAcwBzAGUAbQBiAGwAeQAgAFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAADgNAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_e34da3a4f9b5472398436bbd0802a34e</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE">C2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT-ODS_customer_dim\Script Component.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT-ODS_customer_dim\Script Component.Inputs[Input 0].Columns[clean_name]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="name"
+                      lineageId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output].Columns[name]"
+                      name="clean_name"
+                      usageType="readWrite" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\DFT-ODS_customer_dim\Script Component.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0].Columns[isValid]"
+                      dataType="bool"
+                      lineageId="Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0].Columns[isValid]"
+                      name="isValid" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -990,9 +1932,14 @@
               startId="Package\DFT-ODS_customer_dim\DER-Split Name.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
-              endId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Inputs[Conditional Split Input]"
+              endId="Package\DFT-ODS_customer_dim\Script Component.Inputs[Input 0]"
               name="Non Empty Values"
               startId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values.Outputs[Non Empty Values]" />
+            <path
+              refId="Package\DFT-ODS_customer_dim.Paths[Output 0]"
+              endId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Inputs[Conditional Split Input]"
+              name="Output 0"
+              startId="Package\DFT-ODS_customer_dim\Script Component.Outputs[Output 0]" />
             <path
               refId="Package\DFT-ODS_customer_dim.Paths[Remove @ to Split]"
               endId="Package\DFT-ODS_customer_dim\DER-Split Name.Inputs[Derived Column Input]"
@@ -1009,10 +1956,10 @@
               name="Source to Check Empty"
               startId="Package\DFT-ODS_customer_dim\OLE_SRC STA_customer_dim.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\DFT-ODS_customer_dim.Paths[Valid to Remove @]"
+              refId="Package\DFT-ODS_customer_dim.Paths[Valid values]"
               endId="Package\DFT-ODS_customer_dim\DER-Remove @ Symbol.Inputs[Derived Column Input]"
-              name="Valid to Remove @"
-              startId="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters.Outputs[Valid Characters]" />
+              name="Valid values"
+              startId="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1.Outputs[Valid values]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1031,7 +1978,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{350972D9-5991-422E-9808-74048891904C}"
-          SQLTask:SqlStatementSource="DELETE FROM dbo.ODS_customer_dim" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM dbo.ODS_fact_table;&#xA;DELETE FROM dbo.ODS_customer_dim;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1224,6 +2171,18 @@
           Size="170,42"
           Id="Package\Execute SQL Task"
           TopLeft="294.5,140.5" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Log End"
+          TopLeft="296.5,386.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Log Row Count to ADM"
+          TopLeft="291.5,297.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Log Start"
+          TopLeft="291.5,77.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="379.75,182.5">
@@ -1246,14 +2205,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="124,42"
-          Id="Package\Log Start"
-          TopLeft="291.5,77.5" />
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Log Row Count to ADM"
-          TopLeft="291.5,297.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="415.5,98.5">
@@ -1316,10 +2267,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="120,42"
-          Id="Package\Log End"
-          TopLeft="296.5,386.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="388.5,339.5">
@@ -1357,15 +2304,23 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package.EventHandlers[OnError]\Log Error to ADM"
+          TopLeft="211.5,110.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\DFT-ODS_customer_dim">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="200,42"
-          Id="Package\DFT-ODS_customer_dim\CSPL-Check Special Characters"
-          TopLeft="302.25,85.458333949455" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="225,42"
           Id="Package\DFT-ODS_customer_dim\OLE_DST-ODS_customer_dim"
@@ -1390,30 +2345,10 @@
           Size="130,42"
           Id="Package\DFT-ODS_customer_dim\DER-Split Name"
           TopLeft="50.2500000000001,169.750001210719" />
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Valid to Remove @]"
-          TopLeft="302.25,103.291667551837">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-99.5,0"
-              Start="0,0"
-              End="-92,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-92,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-82.63576171875,5,73.2715234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\DFT-ODS_customer_dim\Row Count"
+          TopLeft="267.5,260.5" />
         <EdgeLayout
           Id="Package\DFT-ODS_customer_dim.Paths[Source to Check Empty]"
           TopLeft="235.5,27.1250002502153">
@@ -1428,124 +2363,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="69.25,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Remove @ to Split]"
-          TopLeft="116.75,121.125001154219">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.6250000565001"
-              Start="0,0"
-              End="0,41.1250000565001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.1250000565001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
-          TopLeft="415.75,48.7500005004307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-13.25,36.7083334490243"
-              Start="0,0"
-              End="-13.25,29.2083334490243">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.3541667245122" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.3541667245122"
-                    Point2="0,18.3541667245122"
-                    Point3="-4,18.3541667245122" />
-                  <mssgle:LineSegment
-                    End="-9.25,18.3541667245122" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-9.25,18.3541667245122"
-                    Point2="-13.25,18.3541667245122"
-                    Point3="-13.25,22.3541667245122" />
-                  <mssgle:LineSegment
-                    End="-13.25,29.2083334490243" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-47.467578125,23.3541667245122,81.68515625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
-          TopLeft="180.75,188.625000847503">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144.25,0"
-              Start="0,0"
-              End="136.75,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="136.75,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\DFT-ODS_customer_dim\Row Count"
-          TopLeft="267.5,260.5" />
-        <EdgeLayout
-          Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
-          TopLeft="403.5,207.500000484287">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.5,52.999999515713"
-              Start="0,0"
-              End="-69.5,45.499999515713">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4999997578565" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.4999997578565"
-                    Point2="0,26.4999997578565"
-                    Point3="-4,26.4999997578565" />
-                  <mssgle:LineSegment
-                    End="-65.5,26.4999997578565" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-65.5,26.4999997578565"
-                    Point2="-69.5,26.4999997578565"
-                    Point3="-69.5,30.4999997578565" />
-                  <mssgle:LineSegment
-                    End="-69.5,45.499999515713" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1588,6 +2405,174 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Remove @ to Split]"
+          TopLeft="116.75,121.125001154219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.6250000565001"
+              Start="0,0"
+              End="0,41.1250000565001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.1250000565001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Derived Column Output]"
+          TopLeft="180.75,188.625000847503">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144.25,0"
+              Start="0,0"
+              End="136.75,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.75,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Data Conversion Output]"
+          TopLeft="403.5,207.500000484287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.5,52.999999515713"
+              Start="0,0"
+              End="-69.5,45.499999515713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4999997578565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4999997578565"
+                    Point2="0,26.4999997578565"
+                    Point3="-4,26.4999997578565" />
+                  <mssgle:LineSegment
+                    End="-65.5,26.4999997578565" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-65.5,26.4999997578565"
+                    Point2="-69.5,26.4999997578565"
+                    Point3="-69.5,30.4999997578565" />
+                  <mssgle:LineSegment
+                    End="-69.5,45.499999515713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT-ODS_customer_dim\Script Component"
+          TopLeft="548,77.4583329485936" />
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Non Empty Values]"
+          TopLeft="415.75,48.7500005004307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="213.75,28.7083324481629"
+              Start="0,0"
+              End="213.75,21.2083324481629">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3541662240815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3541662240815"
+                    Point2="0,14.3541662240815"
+                    Point3="4,14.3541662240815" />
+                  <mssgle:LineSegment
+                    End="209.75,14.3541662240815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="209.75,14.3541662240815"
+                    Point2="213.75,14.3541662240815"
+                    Point3="213.75,18.3541662240815" />
+                  <mssgle:LineSegment
+                    End="213.75,21.2083324481629" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.032421875,19.3541662240815,81.68515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT-ODS_customer_dim\CSPL-Check Empty Values 1"
+          TopLeft="281.5,76.6666689804855" />
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Output 0]"
+          TopLeft="548,98.0625009645395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.5,0"
+              Start="0,0"
+              End="-43,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-43,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_customer_dim.Paths[Valid values]"
+          TopLeft="281.5,98.8958350673523">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.25,0"
+              Start="0,0"
+              End="-70.75,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-70.75,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.44076171875,5,54.1315234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1617,17 +2602,5 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package.EventHandlers[OnError]\Log Error to ADM"
-          TopLeft="211.5,110.5" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
