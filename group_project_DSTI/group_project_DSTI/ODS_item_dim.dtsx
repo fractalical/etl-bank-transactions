@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{510E9F4B-2D48-4597-A3EC-BA9D90F54A31}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{3C24BAA0-A1A8-49A6-9FB5-0E5BC089F878}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -89,62 +89,62 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT-ODS_item_dim\Conditional Split"
+              refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split"
+              name="Conditional Split Empty Values"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[item_name]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[item_name]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="item_name"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[item_name]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[unit_price]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[unit_price]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="unit_price"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[unit_price]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[item_key]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[item_key]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="item_key"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[item_key]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[desc]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[desc]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="desc"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[desc]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[man_country]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[man_country]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="man_country"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[man_country]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[supplier]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[supplier]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="supplier"
                       lineageId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output].Columns[supplier]" />
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input].Columns[unit]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input].Columns[unit]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -156,13 +156,13 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[ValidRows]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[ValidRows]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="ValidRows"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input]"
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
@@ -184,11 +184,11 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Default Output]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -197,23 +197,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Error Output]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -222,20 +222,20 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT-ODS_item_dim\Conditional Split 1"
+              refId="Package\DFT-ODS_item_dim\Conditional Split unit price"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Conditional Split 1"
+              name="Conditional Split unit price"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input].Columns[unit_price]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input].Columns[unit_price]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -247,13 +247,13 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[ValidRows]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[ValidRows]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="ValidRows"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input]"
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
@@ -275,11 +275,11 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -288,23 +288,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2738,12 +2738,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\DFT-ODS_item_dim\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT-ODS_item_dim.Paths[OLE DB Source Output]"
-              endId="Package\DFT-ODS_item_dim\Conditional Split.Inputs[Conditional Split Input]"
+              endId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
               startId="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT-ODS_item_dim.Paths[Output 0]"
-              endId="Package\DFT-ODS_item_dim\Conditional Split 1.Inputs[Conditional Split Input]"
+              endId="Package\DFT-ODS_item_dim\Conditional Split unit price.Inputs[Conditional Split Input]"
               name="Output 0"
               startId="Package\DFT-ODS_item_dim\SCR_unit_price.Outputs[Output 0]" />
             <path
@@ -2760,12 +2760,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               refId="Package\DFT-ODS_item_dim.Paths[ValidRows]"
               endId="Package\DFT-ODS_item_dim\Data Conversion.Inputs[Data Conversion Input]"
               name="ValidRows"
-              startId="Package\DFT-ODS_item_dim\Conditional Split 1.Outputs[ValidRows]" />
+              startId="Package\DFT-ODS_item_dim\Conditional Split unit price.Outputs[ValidRows]" />
             <path
               refId="Package\DFT-ODS_item_dim.Paths[ValidRows1]"
               endId="Package\DFT-ODS_item_dim\SCR_unit.Inputs[Input 0]"
               name="ValidRows"
-              startId="Package\DFT-ODS_item_dim\Conditional Split.Outputs[ValidRows]" />
+              startId="Package\DFT-ODS_item_dim\Conditional Split Empty Values.Outputs[ValidRows]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3151,14 +3151,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\DFT-ODS_item_dim\Data Conversion"
           TopLeft="89.1666666666667,379.458331140586" />
         <NodeLayout
-          Size="152.5,42"
-          Id="Package\DFT-ODS_item_dim\SCR_unit_price"
-          TopLeft="86.8333333333333,246.666665267614" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim"
-          TopLeft="78,18.458333303738" />
-        <NodeLayout
           Size="177,42"
           Id="Package\DFT-ODS_item_dim\OLE DB Destination"
           TopLeft="78.6666666666667,528.166665988664" />
@@ -3167,34 +3159,94 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\DFT-ODS_item_dim\Row Count"
           TopLeft="88,449.723066298343" />
         <NodeLayout
-          Size="164,42"
-          Id="Package\DFT-ODS_item_dim\Conditional Split 1"
+          Size="200,42"
+          Id="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim"
+          TopLeft="78,18.458333303738" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\DFT-ODS_item_dim\SCR_unit"
+          TopLeft="84,170.874999233211" />
+        <NodeLayout
+          Size="152.5,42"
+          Id="Package\DFT-ODS_item_dim\SCR_unit_price"
+          TopLeft="86.8333333333333,246.666665267614" />
+        <NodeLayout
+          Size="200.5,42"
+          Id="Package\DFT-ODS_item_dim\Conditional Split unit price"
           TopLeft="80.6666666666667,311.499999128281" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\DFT-ODS_item_dim\Conditional Split"
+          Size="222.5,42"
+          Id="Package\DFT-ODS_item_dim\Conditional Split Empty Values"
           TopLeft="96,100.249999564141" />
         <EdgeLayout
-          Id="Package\DFT-ODS_item_dim.Paths[ValidRows]"
-          TopLeft="165.166666666667,353.499999128281">
+          Id="Package\DFT-ODS_item_dim.Paths[ValidRows1]"
+          TopLeft="207.25,142.249999564141">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.958332012305"
+              EndConnector="-61.25,28.62499966907"
               Start="0,0"
-              End="0,18.458332012305">
+              End="-61.25,21.12499966907">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.458332012305" />
+                    End="0,10.312499834535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.312499834535"
+                    Point2="0,14.312499834535"
+                    Point3="-4,14.312499834535" />
+                  <mssgle:LineSegment
+                    End="-57.25,14.312499834535" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.25,14.312499834535"
+                    Point2="-61.25,14.312499834535"
+                    Point3="-61.25,18.312499834535" />
+                  <mssgle:LineSegment
+                    End="-61.25,21.12499966907" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-23.35076171875,4.3546542874025,46.7015234375,9.7490234375"
+              BoundingBox="-53.97576171875,19.312499834535,46.7015234375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_item_dim.Paths[ValidRows]"
+          TopLeft="180.916666666667,353.499999128281">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.25,25.958332012305"
+              Start="0,0"
+              End="-13.25,18.458332012305">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.9791660061525" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.9791660061525"
+                    Point2="0,12.9791660061525"
+                    Point3="-4,12.9791660061525" />
+                  <mssgle:LineSegment
+                    End="-9.25,12.9791660061525" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.25,12.9791660061525"
+                    Point2="-13.25,12.9791660061525"
+                    Point3="-13.25,16.9791660061525" />
+                  <mssgle:LineSegment
+                    End="-13.25,18.458332012305" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.97576171875,17.9791660061525,46.7015234375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3233,19 +3285,65 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT-ODS_item_dim.Paths[Output 0]"
-          TopLeft="162.875,288.666665267614">
+          Id="Package\DFT-ODS_item_dim.Paths[Output 01]"
+          TopLeft="146,212.874999233211">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.833333860667"
+              EndConnector="17.0833333333333,33.7916660344029"
               Start="0,0"
-              End="0,15.333333860667">
+              End="17.0833333333333,26.2916660344029">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.333333860667" />
+                    End="0,12.8958330172015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.8958330172015"
+                    Point2="0,16.8958330172015"
+                    Point3="4,16.8958330172015" />
+                  <mssgle:LineSegment
+                    End="13.0833333333333,16.8958330172015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.0833333333333,16.8958330172015"
+                    Point2="17.0833333333333,16.8958330172015"
+                    Point3="17.0833333333333,20.8958330172015" />
+                  <mssgle:LineSegment
+                    End="17.0833333333333,26.2916660344029" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT-ODS_item_dim.Paths[Output 0]"
+          TopLeft="163.083333333333,288.666665267614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.8333333333334,22.833333860667"
+              Start="0,0"
+              End="17.8333333333334,15.333333860667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.41666693033349" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.41666693033349"
+                    Point2="0,11.4166669303335"
+                    Point3="4,11.4166669303335" />
+                  <mssgle:LineSegment
+                    End="13.8333333333334,11.4166669303335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.8333333333334,11.4166669303335"
+                    Point2="17.8333333333334,11.4166669303335"
+                    Point3="17.8333333333334,15.4166669303335" />
+                  <mssgle:LineSegment
+                    End="17.8333333333334,15.333333860667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3256,18 +3354,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT-ODS_item_dim.Paths[OLE DB Source Output]"
-          TopLeft="175.625,60.458333303738">
+          TopLeft="178,60.458333303738">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.791666260403"
+              EndConnector="29.25,39.791666260403"
               Start="0,0"
-              End="0,32.291666260403">
+              End="29.25,32.291666260403">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.291666260403" />
+                    End="0,15.8958331302015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8958331302015"
+                    Point2="0,19.8958331302015"
+                    Point3="4,19.8958331302015" />
+                  <mssgle:LineSegment
+                    End="25.25,19.8958331302015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.25,19.8958331302015"
+                    Point2="29.25,19.8958331302015"
+                    Point3="29.25,23.8958331302015" />
+                  <mssgle:LineSegment
+                    End="29.25,32.291666260403" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3310,85 +3420,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="124,42"
-          Id="Package\DFT-ODS_item_dim\SCR_unit"
-          TopLeft="84,170.874999233211" />
-        <EdgeLayout
-          Id="Package\DFT-ODS_item_dim.Paths[ValidRows1]"
-          TopLeft="173.5,142.249999564141">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-27.5,28.6249996690701"
-              Start="0,0"
-              End="-27.5,21.1249996690701">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.312499834535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.312499834535"
-                    Point2="0,14.312499834535"
-                    Point3="-4,14.312499834535" />
-                  <mssgle:LineSegment
-                    End="-23.5,14.312499834535" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-23.5,14.312499834535"
-                    Point2="-27.5,14.312499834535"
-                    Point3="-27.5,18.312499834535" />
-                  <mssgle:LineSegment
-                    End="-27.5,21.1249996690701" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-37.10076171875,19.312499834535,46.7015234375,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT-ODS_item_dim.Paths[Output 01]"
-          TopLeft="146,212.874999233211">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.0833333333333,33.7916660344029"
-              Start="0,0"
-              End="17.0833333333333,26.2916660344029">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.8958330172015" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.8958330172015"
-                    Point2="0,16.8958330172015"
-                    Point3="4,16.8958330172015" />
-                  <mssgle:LineSegment
-                    End="13.0833333333333,16.8958330172015" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.0833333333333,16.8958330172015"
-                    Point2="17.0833333333333,16.8958330172015"
-                    Point3="17.0833333333333,20.8958330172015" />
-                  <mssgle:LineSegment
-                    End="17.0833333333333,26.2916660344029" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim">
+    design-time-name="Package\DFT-ODS_item_dim\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3401,7 +3437,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT-ODS_item_dim\OLE DB Destination">
+    design-time-name="Package\DFT-ODS_item_dim\OLE_SRC STA_item_dim">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
