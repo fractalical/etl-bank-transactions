@@ -105,7 +105,7 @@ git push origin feature/your-feature-name
 4. Follow the wizard steps and click OK to restore the database
 
 5. #### Report with power Bi :
-6. ![con](./storage/images/Power_BI_sales)
-7. ![con](./storage/images/Power_Bi_Top_customers)
-8. ![con](./storage/images/power_bi_TOP5_product)
-9. ![con](./storage/images/Power_bi_bank-payments)
+6. ![con](./storage/images/Power_BI_sales.png)
+8. ![con](./storage/images/Power_Bi_Top_customers.png)
+9. ![con](./storage/images/power_bi_TOP5_product.png)
+10. ![con](./storage/images/Power_bi_bank-payments.png)
