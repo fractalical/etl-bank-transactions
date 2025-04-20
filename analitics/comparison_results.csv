@@ -1,0 +1,7 @@
+File Name,Original Rows,Cleaned Rows,Original Nulls,Cleaned Nulls,Rows Difference,Nulls Difference
+customer_dim.csv,9191,8524,27,0,-667,-27
+time_dim.csv,99999,99999,0,0,0,0
+trans_dim.csv,39,38,1,0,-1,-1
+item_dim.csv,264,263,1,0,-1,-1
+store_dim.csv,726,726,0,0,0,0
+fact_table.csv,1000000,900188,3723,0,-99812,-3723
